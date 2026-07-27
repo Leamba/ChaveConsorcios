@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vitrine Exclusiva — CHAVE Consórcios</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+<style>
+  :root{
+    --bg: #0c191d; --bg-alt: #0f2126; --surface: #142a2e; --surface-2: #1b343a;
+    --brass: #c08b3e; --brass-light: #e0ad66; --stamp: #b6423f; --emerald: #4c8a6a;
+    --ivory: #f4ecdd; --muted: #93a8ac; --line: rgba(244,236,221,0.12);
+    --font-display: 'Fraunces', serif; --font-body: 'Inter', sans-serif; --font-mono: 'IBM Plex Mono', monospace;
+    --shadow-lg: 0 30px 60px -20px rgba(0,0,0,0.55);
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  body{ background:var(--bg); color:var(--ivory); font-family:var(--font-body); line-height:1.55; -webkit-font-smoothing:antialiased; padding-top: 120px; padding-bottom: 100px; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; }
+  .container{ width:min(1180px, 92%); margin-inline:auto; }
+  
+  .eyebrow{ font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--brass-light); display:flex; align-items:center; gap:10px; margin-bottom:14px; }
+  .eyebrow::before{ content:""; width:26px; height:1px; background:var(--brass); }
+  h2.section-title{ font-family:var(--font-display); font-weight:600; font-size:clamp(1.8rem, 3.4vw, 2.7rem); margin-bottom:16px; letter-spacing:-0.01em; }
+  p.section-lead{ color:var(--muted); max-width:560px; font-size:1.02rem; margin-bottom: 40px; }
+
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:14px 26px; border-radius:3px; font-weight:600; font-size:0.92rem; cursor:pointer; border:1px solid transparent; transition:all .25s ease; white-space:nowrap; }
+  .btn-primary{ background:linear-gradient(180deg, var(--brass-light), var(--brass)); color:#20140a; }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 14px 30px -10px rgba(192,139,62,0.55); }
+
+  header{ position:fixed; top:0; left:0; right:0; z-index:100; padding:14px 0; background:rgba(12,25,29,0.95); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); box-shadow:0 10px 30px -20px rgba(0,0,0,0.6); }
+  nav.container{ display:flex; align-items:center; justify-content:space-between; }
+  .logo{ display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-size:1.35rem; font-weight:700; letter-spacing:0.01em; }
+  .logo-mark{ width:34px; height:34px; border-radius:50%; border:1.5px solid var(--brass-light); display:flex; align-items:center; justify-content:center; color:var(--brass-light); }
+  .logo small{ display:block; font-family:var(--font-mono); font-size:0.55rem; letter-spacing:0.16em; color:var(--muted); font-weight:500; text-transform:uppercase; }
+
+  .filters{ display:flex; gap:10px; margin-bottom: 30px;}
+  .filter-btn{ font-family:var(--font-mono); font-size:0.75rem; letter-spacing:0.06em; text-transform:uppercase; padding:9px 16px; border-radius:20px; border:1px solid var(--line); background:transparent; color:var(--muted); cursor:pointer; transition:all .25s ease; }
+  .filter-btn.active, .filter-btn:hover{ border-color:var(--brass-light); color:var(--brass-light); }
+
+  /* Tabela */
+  .container-tabela { overflow-x:auto; border-radius:8px; border:1px solid var(--line); background:var(--surface); box-shadow:var(--shadow-lg); }
+  table.planilha { width:100%; min-width:1000px; border-collapse:collapse; text-align:left; }
+  table.planilha th { background:var(--bg-alt); color:var(--brass-light); font-family:var(--font-display); padding:16px; font-size:0.85rem; letter-spacing:0.05em; text-transform:uppercase; border-bottom:1px solid var(--line); }
+  table.planilha td { padding:14px 16px; border-bottom:1px solid var(--line); font-family:var(--font-mono); font-size:0.85rem; color:var(--ivory); white-space:nowrap; }
+  table.planilha tbody tr:hover { background:var(--surface-2); }
+  table.planilha td.destaque-credito { color:var(--brass-light); font-weight:600; font-size:0.95rem; }
+  
+  .status-disp { background:rgba(76,138,106,0.15); color:var(--emerald); padding:4px 10px; border-radius:20px; font-size:0.7rem; border:1px solid var(--emerald); text-transform:uppercase; letter-spacing:0.05em;}
+  .status-reser { background:rgba(182,66,63,0.15); color:var(--stamp); padding:4px 10px; border-radius:20px; font-size:0.7rem; border:1px solid var(--stamp); text-transform:uppercase; letter-spacing:0.05em;}
+  
+  .btn-negociar-linha { font-family:var(--font-mono); font-size:0.7rem; text-transform:uppercase; background:transparent; color:var(--brass-light); border:1px solid var(--brass-light); padding:6px 12px; border-radius:4px; cursor:pointer; transition:all 0.3s; }
+  .btn-negociar-linha:hover { background:var(--brass-light); color:#20140a; transform:translateY(-2px); }
+  table.planilha input[type="checkbox"] { accent-color:var(--brass); width:16px; height:16px; cursor:pointer; }
+  
+  /* Barra de Somas Flutuante */
+  .barra-soma { position:fixed; bottom:0; left:0; right:0; background:rgba(12,25,29,0.96); backdrop-filter:blur(10px); border-top:1px solid var(--brass); padding:15px 5%; display:flex; justify-content:space-between; align-items:center; z-index:100; flex-wrap:wrap; gap:15px; box-shadow:0 -10px 30px rgba(0,0,0,0.5); }
+  .barra-info { display:flex; flex-wrap:wrap; gap:24px; flex:1; }
+  .barra-info div { font-family:var(--font-mono); font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em;}
+  .barra-info span { display:block; font-size:1.1rem; color:var(--brass-light); font-weight:600; margin-top:4px; font-family:var(--font-body);}
+
+  @media (max-width: 980px){
+    .nav-links{ display:none; }
+  }
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <nav class="container">
+    <a href="index.html" class="logo">
+      <span class="logo-mark" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11.5 11.5L21 21M21 21V16M21 21H16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span>CHAVE<small>Consórcios</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" style="font-size:0.88rem; color:var(--ivory); opacity:0.85; transition:opacity .2s, color .2s;">Voltar para o Início</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="container">
+  <div class="eyebrow">Estoque Completo</div>
+  <h2 class="section-title">Nossa vitrine exclusiva</h2>
+  <p class="section-lead">Selecione as cartas de interesse abaixo para somar os valores e negociar um pacote pelo WhatsApp. (As cartas reservadas também podem ser negociadas).</p>
+  
+  <div class="filters">
+    <button class="filter-btn active filter-planilha" onclick="filtrarPlanilha('Todas', this)">Todas</button>
+    <button class="filter-btn filter-planilha" onclick="filtrarPlanilha('Veículo', this)">Veículos</button>
+    <button class="filter-btn filter-planilha" onclick="filtrarPlanilha('Imóvel', this)">Imóveis</button>
+  </div>
+
+  <div class="container-tabela">
+      <table class="planilha">
+          <thead>
+              <tr>
+                  <th>Sel.</th>
+                  <th>ID</th>
+                  <th>Categoria</th>
+                  <th>Crédito</th>
+                  <th>Entrada</th>
+                  <th>Prazo</th>
+                  <th>Parcela</th>
+                  <th>ADM</th>
+                  <th>Status</th>
+                  <th>Ação</th>
+              </tr>
+          </thead>
+          <tbody id="tabela-corpo">
+              <!-- Populado automaticamente pelo Script CSV -->
+          </tbody>
+      </table>
+  </div>
+</section>
+
+<!-- Barra de Somas Flutuante -->
+<div class="barra-soma" id="barra-soma" style="display: none;">
+    <div class="barra-info">
+        <div>Qtd <span id="soma-qtd">0</span></div>
+        <div>Crédito <span id="soma-credito">R$ 0,00</span></div>
+        <div>Entrada <span id="soma-entrada">R$ 0,00</span></div>
+        <div>Parcela <span id="soma-parcela">R$ 0,00</span></div>
+    </div>
+    <button class="btn btn-primary" onclick="enviarPacoteWhatsApp()">Negociar Pacote</button>
+</div>
+
+<script>
+  let dadosGlobais = [];
+  let selecionadas = [];
+  const SEU_WHATSAPP = "5517996482578";
+
+  Papa.parse("cartas_contempladas.csv", {
+      download: true,
+      header: true,
+      delimiter: ";",
+      complete: function(results) {
+          dadosGlobais = results.data.filter(carta => carta.ID); 
+          renderizarTabela(dadosGlobais);
+      }
+  });
+
+  function renderizarTabela(dados) {
+      const corpo = document.getElementById("tabela-corpo");
+      if(!corpo) return;
+      corpo.innerHTML = "";
+      selecionadas = []; 
+      atualizarSoma();
+
+      dados.forEach(carta => {
+          const isReservada = carta.Disponibilidade && carta.Disponibilidade.toLowerCase().includes("reservada");
+          const badgeClass = isReservada ? "status-reser" : "status-disp";
+          const checkboxValue = `<input type="checkbox" onchange="selecionarCarta(this, '${carta.ID}', '${carta.Credito}', '${carta.Entrada}', '${carta.Parcela}', '${carta.Categoria}', '${carta.Disponibilidade}')">`;
+
+          const tr = `
+              <tr>
+                  <td>${checkboxValue}</td>
+                  <td><strong>${carta.ID}</strong></td>
+                  <td>${carta.Categoria}</td>
+                  <td class="destaque-credito">${carta.Credito}</td>
+                  <td><strong>${carta.Entrada}</strong></td>
+                  <td>${carta.Prazo || '-'}</td>
+                  <td>${carta.Parcela || '-'}</td>
+                  <td>${carta.Administradora || '-'}</td>
+                  <td><span class="${badgeClass}">${carta.Disponibilidade}</span></td>
+                  <td><button class="btn-negociar-linha" onclick="negociarUnica('${carta.ID}', '${carta.Categoria}', '${carta.Credito}', '${carta.Entrada}')">Negociar</button></td>
+              </tr>
+          `;
+          corpo.innerHTML += tr;
+      });
+  }
+
+  window.filtrarPlanilha = function(categoria, elemento) {
+      const botoes = document.querySelectorAll('.filter-planilha');
+      botoes.forEach(btn => btn.classList.remove('active'));
+      elemento.classList.add('active');
+
+      if (categoria === 'Todas') {
+          renderizarTabela(dadosGlobais);
+      } else {
+          const filtrados = dadosGlobais.filter(carta => carta.Categoria && carta.Categoria.toLowerCase() === categoria.toLowerCase());
+          renderizarTabela(filtrados);
+      }
+  }
+
+  function converterParaNumero(valorString) {
+      if (!valorString || valorString === "-") return 0;
+      let numeroLimpo = valorString.replace("R$", "").replace(/\./g, "").replace(",", ".").trim();
+      return parseFloat(numeroLimpo) || 0;
+  }
+
+  function formatarMoeda(valor) {
+      return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  }
+
+  window.selecionarCarta = function(checkbox, id, creditoStr, entradaStr, parcelaStr, categoria, status) {
+      if (checkbox.checked) {
+          selecionadas.push({ 
+              id, 
+              credito: converterParaNumero(creditoStr), 
+              entrada: converterParaNumero(entradaStr),
+              parcela: converterParaNumero(parcelaStr),
+              creditoStr, entradaStr, categoria, status 
+          });
+      } else {
+          selecionadas = selecionadas.filter(carta => carta.id !== id);
+      }
+      atualizarSoma();
+  }
+
+  function atualizarSoma() {
+      const barra = document.getElementById("barra-soma");
+      if (selecionadas.length === 0) {
+          barra.style.display = "none";
+          return;
+      }
+      barra.style.display = "flex";
+      
+      const totalCredito = selecionadas.reduce((soma, carta) => soma + carta.credito, 0);
+      const totalEntrada = selecionadas.reduce((soma, carta) => soma + carta.entrada, 0);
+      const totalParcela = selecionadas.reduce((soma, carta) => soma + carta.parcela, 0);
+
+      document.getElementById("soma-qtd").innerText = selecionadas.length;
+      document.getElementById("soma-credito").innerText = formatarMoeda(totalCredito);
+      document.getElementById("soma-entrada").innerText = formatarMoeda(totalEntrada);
+      document.getElementById("soma-parcela").innerText = formatarMoeda(totalParcela);
+  }
+
+  window.enviarPacoteWhatsApp = function() {
+      const totalCredito = formatarMoeda(selecionadas.reduce((soma, carta) => soma + carta.credito, 0));
+      const totalEntrada = formatarMoeda(selecionadas.reduce((soma, carta) => soma + carta.entrada, 0));
+      const totalParcela = formatarMoeda(selecionadas.reduce((soma, carta) => soma + carta.parcela, 0));
+
+      let texto = `*Olá!* Tenho interesse neste pacote de cartas que selecionei no site:\n\n`;
+      selecionadas.forEach(carta => {
+          texto += `🔹 *ID:* ${carta.id} (${carta.categoria}) - _${carta.status}_\n   Crédito: ${carta.creditoStr}\n   Entrada: ${carta.entradaStr}\n\n`;
+      });
+      texto += `📊 *RESUMO DO PACOTE:*\n💰 Crédito Total: ${totalCredito}\n💸 Entrada Total: ${totalEntrada}\n🗓️ Parcelas: ${totalParcela}\n\nPodemos conversar?`;
+      window.open(`https://wa.me/${SEU_WHATSAPP}?text=${encodeURIComponent(texto)}`, '_blank');
+  }
+
+  window.negociarUnica = function(id, categoria, credito, entrada) {
+      let texto = `*Olá!* Estava a olhar o estoque e tenho interesse na carta única abaixo:\n\n🔹 *ID:* ${id} (${categoria})\n💰 *Crédito:* ${credito}\n💸 *Entrada:* ${entrada}\n\nAinda está disponível para negócio?`;
+      window.open(`https://wa.me/${SEU_WHATSAPP}?text=${encodeURIComponent(texto)}`, '_blank');
+  }
+</script>
+</body>
+</html>
