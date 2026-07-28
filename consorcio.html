@@ -557,49 +557,594 @@
       </div>
     </section>
 
-    <section id="simulador" class="simulator-section">
-      <div class="sim-grid">
-        <div class="sim-info">
-          <h2>Simule Seu Plano sem Compromisso</h2>
-          <p>Preencha os dados ao lado para receber um estudo personalizado das melhores opções de crédito e parcelas do Consórcio Maggi.</p>
+<style>
+    .simulador-container {
+        max-width: 900px;
+        margin: 40px auto 80px auto;
+        background: #111827;
+        border: 1px solid #c08b3e;
+        border-radius: 16px;
+        padding: 30px;
+        color: #F9FAFB;
+        font-family: 'Inter', system-ui, sans-serif;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    }
 
-          <ul class="sim-benefits">
-            <li>Sem cobrança de taxa de adesão</li>
-            <li>Possibilidade de oferta de lance livre e embutido</li>
-            <li>Sorteios mensais garantidos pela Loteria Federal</li>
-            <li>Atendimento humano e exclusivo via WhatsApp</li>
-          </ul>
-        </div>
+    .simulador-header {
+        text-align: center;
+        margin-bottom: 25px;
+    }
 
-        <form class="sim-form" id="formMaggi">
-          <div class="form-group">
-            <label for="nome">Seu Nome Completo</label>
-            <input type="text" id="nome" placeholder="Ex: João Silva" required>
-          </div>
+    .simulador-header h2 {
+        color: #e0ad66;
+        font-family: 'Fraunces', serif;
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
 
-          <div class="form-group">
-            <label for="whatsapp">Seu WhatsApp</label>
-            <input type="tel" id="whatsapp" placeholder="Ex: (17) 99999-9999" required>
-          </div>
+    /* Abas de Categoria */
+    .tabs-categoria {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 25px;
+    }
 
-          <div class="form-group">
-            <label for="categoria">Categoria do Consórcio</label>
-            <select id="categoria">
-              <option value="Imóvel">Imóvel (Casa, Terreno, Reforma)</option>
-              <option value="Veículo">Veículo (Carro / Moto)</option>
-              <option value="Pesados / Agro">Pesados / Agronegócio</option>
-            </select>
-          </div>
+    .tab-btn {
+        background: #1b343a;
+        border: 2px solid #1b343a;
+        color: #93a8ac;
+        padding: 12px 24px;
+        border-radius: 10px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+    }
 
-          <div class="form-group">
-            <label for="credito">Valor do Crédito Desejado</label>
-            <input type="text" id="credito" placeholder="Ex: R$ 150.000,00" required>
-          </div>
+    .tab-btn.active, .tab-btn:hover {
+        background: #c08b3e;
+        color: #0c191d;
+        border-color: #c08b3e;
+    }
 
-          <button type="submit" class="btn-primary" style="width: 100%; margin-top: 0.5rem;">Receber Simulação no WhatsApp</button>
-        </form>
-      </div>
-    </section>
+    /* Grid de Botões de Valor */
+    .val-selector-title {
+        font-size: 0.95rem;
+        color: #f4ecdd;
+        margin-bottom: 12px;
+        text-align: center;
+    }
+
+    .grid-valores {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 12px;
+        margin-bottom: 25px;
+    }
+
+    .btn-val {
+        background: #142a2e;
+        border: 1px solid #1b343a;
+        color: #f4ecdd;
+        padding: 12px 8px;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        text-align: center;
+        transition: all 0.2s ease;
+    }
+
+    .btn-val:hover, .btn-val.active {
+        background: #10B981;
+        color: #FFFFFF;
+        border-color: #10B981;
+    }
+
+    /* Checkbox Lance Embutido */
+    .lance-toggle-box {
+        background: #142a2e;
+        padding: 15px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 25px;
+        border: 1px dashed #c08b3e;
+    }
+
+    .lance-toggle-box input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        accent-color: #c08b3e;
+        cursor: pointer;
+    }
+
+    .lance-toggle-box label {
+        cursor: pointer;
+        font-size: 0.95rem;
+        color: #f4ecdd;
+    }
+
+    /* Cards de Resultado */
+    .cards-resultado {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .card-cota {
+        background: #142a2e;
+        border-top: 4px solid #c08b3e;
+        border-radius: 12px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .card-cota.destaque {
+        border-top-color: #10B981;
+    }
+
+    .card-badge {
+        font-size: 0.75rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 4px 8px;
+        border-radius: 4px;
+        width: fit-content;
+        margin-bottom: 10px;
+    }
+
+    .badge-menor { background: #3B82F6; color: #FFF; }
+    .badge-rapido { background: #10B981; color: #FFF; }
+
+    .card-grupo-nome {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #FFFFFF;
+        margin-bottom: 15px;
+    }
+
+    .card-detalhe {
+        margin-bottom: 8px;
+        font-size: 0.95rem;
+        color: #93a8ac;
+    }
+
+    .card-detalhe span {
+        font-weight: bold;
+        color: #FFFFFF;
+    }
+
+    .card-destaque-valor {
+        background: #0c191d;
+        padding: 12px;
+        border-radius: 8px;
+        margin: 15px 0;
+        text-align: center;
+        border: 1px solid #1b343a;
+    }
+
+    .card-destaque-valor .label {
+        font-size: 0.75rem;
+        color: #93a8ac;
+        display: block;
+    }
+
+    .card-destaque-valor .val {
+        font-size: 1.35rem;
+        font-weight: bold;
+        color: #10B981;
+    }
+
+    .card-nota-rodape {
+        font-size: 0.8rem;
+        color: #e0ad66;
+        margin-bottom: 15px;
+        font-style: italic;
+    }
+
+    .btn-whatsapp-sim {
+        background: #25D366;
+        color: #FFFFFF;
+        text-align: center;
+        padding: 12px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: background 0.2s ease;
+    }
+
+    .btn-whatsapp-sim:hover {
+        background: #1EBE5D;
+    }
+</style>
+
+<section id="simulador" class="simulador-container">
+    <div class="simulador-header">
+        <h2>Simulador de Consórcio Maggi</h2>
+        <p style="color: #93a8ac; font-size: 0.95rem;">Selecione a modalidade e a faixa de valor para consultar o plano ideal</p>
+    </div>
+
+    <div class="tabs-categoria">
+        <button class="tab-btn active" onclick="trocarCategoria('imoveis')">🏠 Imóveis</button>
+        <button class="tab-btn" onclick="trocarCategoria('veiculos')">🚗 Veículos (BYD)</button>
+    </div>
+
+    <div class="val-selector-title">Selecione o valor de crédito desejado:</div>
+    <div class="grid-valores" id="container-botoes-valor"></div>
+
+    <div class="lance-toggle-box">
+        <input type="checkbox" id="chk-lance-embutido" onchange="atualizarSimulacao()">
+        <label for="chk-lance-embutido" id="lbl-lance">
+            Simular com uso de <strong>Lance Embutido de 20%</strong> do próprio crédito
+        </label>
+    </div>
+
+    <div class="cards-resultado" id="container-cards-resultado"></div>
+</section>
+
+<script>
+    // Número oficial do WhatsApp do site
+    const SEU_WHATSAPP = "5517996482578"; 
+
+    const dadosMaggi = {
+        imoveis: [
+            {
+                preset: 150000,
+                label: "R$ 150.000",
+                opcoes: [
+                    {
+                        badge: "Menor Parcela",
+                        badgeClass: "badge-menor",
+                        grupo: "Grupo 2019",
+                        creditoBruto: 168315.00,
+                        prazo: 193,
+                        parcela: 1215.41,
+                        taxaLancePct: 0.20,
+                        obs: "Ideal para R$ 150 mil + despesas de ITBI/Escritura."
+                    }
+                ]
+            },
+            {
+                preset: 200000,
+                label: "R$ 200.000",
+                opcoes: [
+                    {
+                        badge: "Menor Parcela",
+                        badgeClass: "badge-menor",
+                        grupo: "Grupo 2020",
+                        creditoBruto: 211402.00,
+                        prazo: 204,
+                        parcela: 1452.23,
+                        taxaLancePct: 0.20
+                    },
+                    {
+                        badge: "Prazo Reduzido",
+                        badgeClass: "badge-rapido",
+                        grupo: "Grupo 2016",
+                        creditoBruto: 193563.00,
+                        prazo: 143,
+                        parcela: 1854.26,
+                        taxaLancePct: 0.20
+                    }
+                ]
+            },
+            {
+                preset: 250000,
+                label: "R$ 250.000",
+                opcoes: [
+                    {
+                        badge: "Menor Parcela",
+                        badgeClass: "badge-menor",
+                        grupo: "Grupo 2020",
+                        creditoBruto: 243112.00,
+                        prazo: 204,
+                        parcela: 1670.06,
+                        taxaLancePct: 0.20
+                    },
+                    {
+                        badge: "Quitação Rápida",
+                        badgeClass: "badge-rapido",
+                        grupo: "Grupo 2014",
+                        creditoBruto: 248032.00,
+                        prazo: 112,
+                        parcela: 3009.40,
+                        taxaLancePct: 0.20
+                    }
+                ]
+            },
+            {
+                preset: 300000,
+                label: "R$ 300.000",
+                opcoes: [
+                    {
+                        badge: "Menor Parcela",
+                        badgeClass: "badge-menor",
+                        grupo: "Grupo 2020",
+                        creditoBruto: 306532.00,
+                        prazo: 204,
+                        parcela: 2105.73,
+                        taxaLancePct: 0.20
+                    },
+                    {
+                        badge: "Prazo Intermediário",
+                        badgeClass: "badge-rapido",
+                        grupo: "Grupo 2015",
+                        creditoBruto: 299818.00,
+                        prazo: 137,
+                        parcela: 2988.65,
+                        taxaLancePct: 0.20
+                    }
+                ]
+            },
+            {
+                preset: 350000,
+                label: "R$ 350.000",
+                opcoes: [
+                    {
+                        badge: "Menor Parcela",
+                        badgeClass: "badge-menor",
+                        grupo: "Grupo 2020",
+                        creditoBruto: 359383.00,
+                        prazo: 204,
+                        parcela: 2468.79,
+                        taxaLancePct: 0.20
+                    },
+                    {
+                        badge: "Prazo Reduzido",
+                        badgeClass: "badge-rapido",
+                        grupo: "Grupo 2016",
+                        creditoBruto: 348413.00,
+                        prazo: 143,
+                        parcela: 3337.66,
+                        taxaLancePct: 0.20
+                    }
+                ]
+            },
+            {
+                preset: 400000,
+                label: "R$ 400.000",
+                opcoes: [
+                    {
+                        badge: "Menor Parcela",
+                        badgeClass: "badge-menor",
+                        grupo: "Grupo 2020",
+                        creditoBruto: 422803.00,
+                        prazo: 204,
+                        parcela: 2904.45,
+                        taxaLancePct: 0.20
+                    },
+                    {
+                        badge: "Plano Especial",
+                        badgeClass: "badge-rapido",
+                        grupo: "Grupo 2018",
+                        creditoBruto: 416984.00,
+                        prazo: 160,
+                        parcela: 3572.72,
+                        taxaLancePct: 0.20
+                    }
+                ]
+            },
+            {
+                preset: 500000,
+                label: "R$ 500.000+",
+                opcoes: [
+                    {
+                        badge: "Alto Padrão",
+                        badgeClass: "badge-menor",
+                        grupo: "Grupo 2015",
+                        creditoBruto: 571083.00,
+                        prazo: 137,
+                        parcela: 5692.69,
+                        taxaLancePct: 0.20
+                    }
+                ]
+            }
+        ],
+        veiculos: [
+            {
+                preset: 110000,
+                label: "R$ 110.000",
+                opcoes: [
+                    {
+                        badge: "Linha BYD / Usados",
+                        badgeClass: "badge-rapido",
+                        grupo: "Grupo 0645",
+                        creditoBruto: 110000.00,
+                        prazo: 150,
+                        parcela: 953.93,
+                        taxaLancePct: 0.10,
+                        obs: "Super Aceleração: até 880 contemplações nos 24 primeiros meses!"
+                    }
+                ]
+            },
+            {
+                preset: 130000,
+                label: "R$ 130.000",
+                opcoes: [
+                    {
+                        badge: "Linha BYD / Usados",
+                        badgeClass: "badge-rapido",
+                        grupo: "Grupo 0645",
+                        creditoBruto: 130000.00,
+                        prazo: 150,
+                        parcela: 1127.37,
+                        taxaLancePct: 0.10,
+                        obs: "Mega Assembleias nos meses 06, 12, 18 e 24!"
+                    }
+                ]
+            },
+            {
+                preset: 160000,
+                label: "R$ 160.000",
+                opcoes: [
+                    {
+                        badge: "Linha BYD / Usados",
+                        badgeClass: "badge-rapido",
+                        grupo: "Grupo 0645",
+                        creditoBruto: 160000.00,
+                        prazo: 150,
+                        parcela: 1387.53,
+                        taxaLancePct: 0.10
+                    }
+                ]
+            },
+            {
+                preset: 190000,
+                label: "R$ 190.000",
+                opcoes: [
+                    {
+                        badge: "Linha BYD / Usados",
+                        badgeClass: "badge-rapido",
+                        grupo: "Grupo 0645",
+                        creditoBruto: 190000.00,
+                        prazo: 150,
+                        parcela: 1647.69,
+                        taxaLancePct: 0.10
+                    }
+                ]
+            },
+            {
+                preset: 220000,
+                label: "R$ 220.000",
+                opcoes: [
+                    {
+                        badge: "Linha BYD / Usados",
+                        badgeClass: "badge-rapido",
+                        grupo: "Grupo 0645",
+                        creditoBruto: 220000.00,
+                        prazo: 150,
+                        parcela: 1907.86,
+                        taxaLancePct: 0.10
+                    }
+                ]
+            }
+        ]
+    };
+
+    let categoriaAtual = 'imoveis';
+    let valorSelecionado = 200000;
+
+    function formatarBRL(valor) {
+        return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    }
+
+    function trocarCategoria(cat) {
+        categoriaAtual = cat;
+        
+        const tabs = document.querySelectorAll('.tab-btn');
+        tabs[0].classList.toggle('active', cat === 'imoveis');
+        tabs[1].classList.toggle('active', cat === 'veiculos');
+
+        const lblLance = document.getElementById('lbl-lance');
+        if (cat === 'imoveis') {
+            lblLance.innerHTML = 'Simular com uso de <strong>Lance Embutido de 20%</strong> do próprio crédito';
+            valorSelecionado = 200000;
+        } else {
+            lblLance.innerHTML = 'Simular com uso de <strong>Lance Embutido de 10%</strong> do próprio crédito';
+            valorSelecionado = 160000;
+        }
+
+        renderizarBotoesValor();
+        atualizarSimulacao();
+    }
+
+    function renderizarBotoesValor() {
+        const container = document.getElementById('container-botoes-valor');
+        container.innerHTML = '';
+
+        const listaValores = dadosMaggi[categoriaAtual];
+        listaValores.forEach(item => {
+            const btn = document.createElement('button');
+            btn.className = `btn-val ${item.preset === valorSelecionado ? 'active' : ''}`;
+            btn.innerText = item.label;
+            btn.onclick = () => {
+                valorSelecionado = item.preset;
+                document.querySelectorAll('.btn-val').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                atualizarSimulacao();
+            };
+            container.appendChild(btn);
+        });
+    }
+
+    function atualizarSimulacao() {
+        const containerCards = document.getElementById('container-cards-resultado');
+        containerCards.innerHTML = '';
+
+        const comLance = document.getElementById('chk-lance-embutido').checked;
+        const categoriaValores = dadosMaggi[categoriaAtual];
+        const dadosPreset = categoriaValores.find(v => v.preset === valorSelecionado) || categoriaValores[0];
+
+        dadosPreset.opcoes.forEach(opt => {
+            const pctLance = comLance ? opt.taxaLancePct : 0;
+            const valorLance = opt.creditoBruto * pctLance;
+            const valorLiquido = opt.creditoBruto - valorLance;
+
+            const card = document.createElement('div');
+            card.className = `card-cota ${opt.badgeClass === 'badge-rapido' ? 'destaque' : ''}`;
+
+            let textoWhatsapp = `Olá! Fiz uma simulação pelo site no *Consórcio Maggi*:\n` +
+                `• *Modalidade:* ${categoriaAtual === 'imoveis' ? 'Imobiliário' : 'Veículos (BYD)'}\n` +
+                `• *Grupo:* ${opt.grupo}\n` +
+                `• *Crédito:* ${formatarBRL(opt.creditoBruto)}\n` +
+                `• *Prazo:* ${opt.prazo} meses de ${formatarBRL(opt.parcela)}\n`;
+
+            if (comLance) {
+                textoWhatsapp += `• *Lance Embutido (${opt.taxaLancePct * 100}%):* ${formatarBRL(valorLance)}\n` +
+                    `• *Valor Líquido Liberado:* ${formatarBRL(valorLiquido)}\n`;
+            }
+
+            textoWhatsapp += `Gostaria de verificar a disponibilidade de cota neste grupo!`;
+
+            const linkWa = `https://wa.me/${SEU_WHATSAPP}?text=${encodeURIComponent(textoWhatsapp)}`;
+
+            card.innerHTML = `
+                <div>
+                    <span class="card-badge ${opt.badgeClass}">${opt.badge}</span>
+                    <div class="card-grupo-nome">${opt.grupo}</div>
+                    
+                    <div class="card-detalhe">Crédito de Tabela: <span>${formatarBRL(opt.creditoBruto)}</span></div>
+                    <div class="card-detalhe">Prazo do Plano: <span>${opt.prazo} meses</span></div>
+                    <div class="card-detalhe">Parcela Mensal: <span>${formatarBRL(opt.parcela)}</span></div>
+                    
+                    ${comLance ? `
+                        <div class="card-detalhe" style="color: #c08b3e; margin-top: 8px;">
+                            Lance Embutido (${opt.taxaLancePct * 100}%): <strong>-${formatarBRL(valorLance)}</strong>
+                        </div>
+                    ` : ''}
+
+                    <div class="card-destaque-valor">
+                        <span class="label">${comLance ? 'VALOR LÍQUIDO P/ COMPRA' : 'VALOR DE CRÉDITO DISPONÍVEL'}</span>
+                        <span class="val">${formatarBRL(valorLiquido)}</span>
+                    </div>
+
+                    ${opt.obs ? `<div class="card-nota-rodape">ℹ️ ${opt.obs}</div>` : ''}
+                </div>
+
+                <a href="${linkWa}" target="_blank" class="btn-whatsapp-sim">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984 0 1.758.459 3.474 1.33 4.988l-1.413 5.165 5.286-1.385c1.458.796 3.1 1.216 4.782 1.217h.004c5.506 0 9.99-4.478 9.99-9.985 0-2.667-2.133-5.172-3.985-7.037-1.85-1.864-4.354-2.947-7.004-2.947zm0 1.62c2.233 0 4.332.87 5.912 2.451 1.58 1.581 2.45 3.68 2.45 5.913 0 4.615-3.754 8.369-8.369 8.369-1.503 0-2.972-.405-4.249-1.17l-.305-.185-3.155.825.84-3.076-.202-.321c-.84-1.335-1.285-2.883-1.285-4.442 0-4.615 3.755-8.369 8.363-8.369z"/></svg>
+                    Solicitar este Grupo
+                </a>
+            `;
+
+            containerCards.appendChild(card);
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        renderizarBotoesValor();
+        atualizarSimulacao();
+    });
+</script>    
 
     <section class="diff-section">
       <div class="section-title">
@@ -675,31 +1220,7 @@
       });
     });
 
-    // Helper para selecionar categoria ao clicar no card
-    function selecionarCategoria(cat) {
-      document.getElementById('categoria').value = cat;
-    }
-
-    // Envio do Formulário para WhatsApp
-    document.getElementById('formMaggi').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const nome = document.getElementById('nome').value.trim();
-      const whatsapp = document.getElementById('whatsapp').value.trim();
-      const categoria = document.getElementById('categoria').value;
-      const credito = document.getElementById('credito').value.trim();
-
-      const msg = `*Olá!* Meu nome é *${nome}*.\n\n` +
-                  `Gostaria de uma simulação do *Consórcio Maggi*:\n` +
-                  `🔹 *Categoria:* ${categoria}\n` +
-                  `💰 *Crédito Desejado:* ${credito}\n` +
-                  `📱 *Meu WhatsApp:* ${whatsapp}\n\n` +
-                  `Poderia me enviar as opções de parcelas?`;
-
-      const link = `https://wa.me/5517996482578?text=${encodeURIComponent(msg)}`;
-      window.open(link, '_blank');
-    });
-  </script>
+    </script>
 
 </body>
 </html>
