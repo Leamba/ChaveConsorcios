@@ -504,8 +504,21 @@
       text-transform: uppercase;
       padding: 0.35rem 0.8rem;
       border-radius: 20px;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       letter-spacing: 1px;
+    }
+
+    .byd-promo-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    @media (max-width: 850px) {
+      .byd-promo-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .byd-promo-content h2 {
@@ -529,8 +542,8 @@
     .byd-features {
       list-style: none;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.8rem;
       margin-bottom: 1.8rem;
     }
 
@@ -547,18 +560,52 @@
       color: var(--brass-light);
     }
 
+    /* Galeria BYD: Imagem Principal Externa + Miniaturas Internas */
+    .byd-promo-media {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .byd-img-main {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 1px solid rgba(192, 139, 62, 0.4);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    }
+
+    .byd-img-thumbs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+
+    .byd-img-thumb {
+      width: 100%;
+      height: 95px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid rgba(192, 139, 62, 0.25);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .byd-img-thumb:hover {
+      transform: scale(1.03);
+      border-color: var(--brass-light);
+    }
+
     .byd-legal-note {
       font-size: 0.78rem;
       color: var(--muted);
-      margin-top: 1.2rem;
+      margin-top: 1.5rem;
       line-height: 1.4;
       border-top: 1px solid rgba(192, 139, 62, 0.2);
       padding-top: 0.8rem;
       font-style: italic;
     }
   </style>
-</head>
-
 </head>
 <body>
 
@@ -598,24 +645,31 @@
 <!-- Banner de Lançamento BYD -->
     <section class="byd-promo-section">
       <div class="byd-promo-badge">🚀 Lançamento Exclusivo</div>
-      <div class="byd-promo-content">
-        <h2>A Revolução Elétrica Chegou! <span>Grupo 0645 BYD</span></h2>
-        <p>Conquiste o seu veículo elétrico ou híbrido com as melhores condições de consórcio do mercado, sem juros e com total planejamento.</p>
-        
-        <ul class="byd-features">
-          <li><strong>Até 150 meses</strong> para pagar</li>
-          <li>Taxa de admin. de apenas <strong>20% total</strong></li>
-          <li><strong>Sem juros</strong> e sem entrada abusiva</li>
-          <li>Sorteio e Lances (Fixo e Livre)</li>
-        </ul>
+      <div class="byd-promo-grid">
+        <div class="byd-promo-content">
+          <h2>A Revolução Elétrica Chegou! <span>Grupo 0645 BYD</span></h2>
+          <p>Conquiste o seu veículo elétrico ou híbrido com as melhores condições de consórcio do mercado, sem juros e com total planejamento.</p>
+          
+          <ul class="byd-features">
+            <li><strong>150 meses para pagar</strong></li>
+            <li><strong>Sem Juros</strong></li>
+            <li><strong>Taxa admin. de 20%</strong></li>
+            <li><strong>Sorteio e Lance</strong></li>
+          </ul>
 
-        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
-          <a href="#simulador" onclick="trocarCategoria('veiculos')" class="btn-primary">Simular Grupo BYD</a>
-          <a href="https://wa.me/5517996482578?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20o%20lan%C3%A7amento%20do%20Grupo%200645%20BYD." target="_blank" rel="noopener" class="btn-outline">Falar sobre o Grupo BYD</a>
+          <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <a href="#simulador" onclick="trocarCategoria('veiculos')" class="btn-primary">Simular Grupo BYD</a>
+            <a href="https://wa.me/5517996482578?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20o%20lan%C3%A7amento%20do%20Grupo%200645%20BYD." target="_blank" rel="noopener" class="btn-outline">Falar sobre o Grupo BYD</a>
+          </div>
         </div>
 
-        <p class="byd-legal-note">*O valor do crédito pode ser utilizado para a compra de qualquer veículo 0 km ou usado com até 3 anos de uso, conforme regulamento do grupo e normas da administradora.</p>
+        <!-- Imagem Destaque BYD -->
+        <div class="byd-promo-media">
+          <img src="https://images.unsplash.com/photo-1619767886558-efdc259cde1a?auto=format&fit=crop&w=800&q=80" alt="BYD Veículo Elétrico Exterior" class="byd-img-main">
+        </div>
       </div>
+
+      <p class="byd-legal-note">*O valor do crédito pode ser utilizado para a compra de qualquer veículo 0 km ou usado com até 3 anos de uso, conforme regulamento do grupo e normas da administradora.</p>
     </section>
     <section>
       <div class="section-title">
