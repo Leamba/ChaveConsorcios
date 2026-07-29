@@ -483,7 +483,82 @@
         justify-content: center;
       }
     }
+
+    /* Banner Promocional BYD */
+    .byd-promo-section {
+      background: linear-gradient(135deg, rgba(20, 42, 46, 0.95) 0%, rgba(15, 33, 38, 0.95) 100%);
+      border: 1px solid var(--brass);
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      margin: 1rem 0 4rem 0;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    }
+
+    .byd-promo-badge {
+      display: inline-block;
+      background: var(--brass);
+      color: #081114;
+      font-weight: 700;
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      padding: 0.35rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+    }
+
+    .byd-promo-content h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      color: var(--ivory);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .byd-promo-content h2 span {
+      color: var(--brass-light);
+    }
+
+    .byd-promo-content p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .byd-features {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .byd-features li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: var(--ivory);
+      font-size: 0.92rem;
+    }
+
+    .byd-features li::before {
+      content: '⚡';
+      color: var(--brass-light);
+    }
+
+    .byd-legal-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 1.2rem;
+      line-height: 1.4;
+      border-top: 1px solid rgba(192, 139, 62, 0.2);
+      padding-top: 0.8rem;
+      font-style: italic;
+    }
   </style>
+</head>
+
 </head>
 <body>
 
@@ -520,7 +595,28 @@
         <a href="https://wa.me/5517996482578?text=Ol%C3%A1%21%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20Cons%C3%B3rcio%20Maggi." target="_blank" rel="noopener" class="btn-outline">Falar com Consultor</a>
       </div>
     </section>
+<!-- Banner de Lançamento BYD -->
+    <section class="byd-promo-section">
+      <div class="byd-promo-badge">🚀 Lançamento Exclusivo</div>
+      <div class="byd-promo-content">
+        <h2>A Revolução Elétrica Chegou! <span>Grupo 0645 BYD</span></h2>
+        <p>Conquiste o seu veículo elétrico ou híbrido com as melhores condições de consórcio do mercado, sem juros e com total planejamento.</p>
+        
+        <ul class="byd-features">
+          <li><strong>Até 150 meses</strong> para pagar</li>
+          <li>Taxa de admin. de apenas <strong>20% total</strong></li>
+          <li><strong>Sem juros</strong> e sem entrada abusiva</li>
+          <li>Sorteio e Lances (Fixo e Livre)</li>
+        </ul>
 
+        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+          <a href="#simulador" onclick="trocarCategoria('veiculos')" class="btn-primary">Simular Grupo BYD</a>
+          <a href="https://wa.me/5517996482578?text=Ol%C3%A1%21%20Quero%20saber%20mais%20sobre%20o%20lan%C3%A7amento%20do%20Grupo%200645%20BYD." target="_blank" rel="noopener" class="btn-outline">Falar sobre o Grupo BYD</a>
+        </div>
+
+        <p class="byd-legal-note">*O valor do crédito pode ser utilizado para a compra de qualquer veículo 0 km ou usado com até 3 anos de uso, conforme regulamento do grupo e normas da administradora.</p>
+      </div>
+    </section>
     <section>
       <div class="section-title">
         <h2>Modalidades de Consórcio</h2>
