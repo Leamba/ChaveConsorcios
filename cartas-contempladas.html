@@ -1,265 +1,333 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vitrine Exclusiva de Cartas Contempladas | CHAVE Consórcios</title>
-<meta name="description" content="Vitrine exclusiva de cartas de consórcio já contempladas. Selecione, compare e negocie cartas para veículos e imóveis de alto padrão diretamente pelo WhatsApp.">
-
-<!-- Favicon -->
+<title>Vitrine Exclusiva de Cartas Contempladas | CHAVE ConsÃ³rcios</title>
+<meta name="description" content="Vitrine exclusiva de cartas de consÃ³rcio jÃ¡ contempladas. Selecione, compare e negocie cartas para veÃ­culos e imÃ³veis de alto padrÃ£o diretamente pelo WhatsApp.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c191d'/%3E%3Ccircle cx='11' cy='11' r='6' stroke='%23c08b3e' stroke-width='2' fill='none'/%3E%3Cpath d='M15.5 15.5L25 25M25 25V20M25 25H20' stroke='%23c08b3e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
-
-<!-- Open Graph — Preview no WhatsApp, Facebook e LinkedIn -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:site_name" content="CHAVE Consórcios">
-<meta property="og:title" content="Vitrine Exclusiva de Cartas Contempladas | CHAVE Consórcios">
-<meta property="og:description" content="Vitrine exclusiva de cartas de consórcio já contempladas. Selecione, compare e negocie cartas para veículos e imóveis de alto padrão diretamente pelo WhatsApp.">
+<meta property="og:site_name" content="CHAVE ConsÃ³rcios">
+<meta property="og:title" content="Vitrine Exclusiva de Cartas Contempladas | CHAVE ConsÃ³rcios">
+<meta property="og:description" content="Vitrine exclusiva de cartas de consÃ³rcio jÃ¡ contempladas. Selecione, compare e negocie cartas para veÃ­culos e imÃ³veis de alto padrÃ£o diretamente pelo WhatsApp.">
 <meta property="og:url" content="https://abnael-martins.github.io/ChaveConsorcios/cartas-contempladas.html">
 <meta property="og:image" content="https://abnael-martins.github.io/ChaveConsorcios/diversos-bens.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 <style>
   :root{
-    --bg: #0c191d; --bg-alt: #0f2126; --surface: #142a2e; --surface-2: #1b343a;
-    --brass: #c08b3e; --brass-light: #e0ad66; --stamp: #b6423f; --emerald: #4c8a6a;
-    --ivory: #f4ecdd; --muted: #93a8ac; --line: rgba(244,236,221,0.12);
-    --font-display: 'Fraunces', serif; --font-body: 'Inter', sans-serif; --font-mono: 'IBM Plex Mono', monospace;
-    --shadow-lg: 0 30px 60px -20px rgba(0,0,0,0.55);
+    --bg:#0c191d; --bg-alt:#0f2126; --surface:#142a2e; --surface-2:#1b343a;
+    --brass:#c08b3e; --brass-light:#e0ad66; --stamp:#b6423f; --emerald:#4c8a6a;
+    --ivory:#f4ecdd; --muted:#93a8ac; --line:rgba(244,236,221,0.12);
+    --font-display:'Fraunces',serif; --font-body:'Inter',sans-serif; --font-mono:'IBM Plex Mono',monospace;
+    --shadow-lg:0 30px 60px -20px rgba(0,0,0,0.55);
   }
-  *{ box-sizing:border-box; margin:0; padding:0; }
-  body{ background:var(--bg); color:var(--ivory); font-family:var(--font-body); line-height:1.55; -webkit-font-smoothing:antialiased; padding-top: 120px; padding-bottom: 100px; }
-  a{ color:inherit; text-decoration:none; }
-  ul{ list-style:none; }
-  .container{ width:min(1180px, 92%); margin-inline:auto; }
-  
-  .eyebrow{ font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--brass-light); display:flex; align-items:center; gap:10px; margin-bottom:14px; }
-  .eyebrow::before{ content:""; width:26px; height:1px; background:var(--brass); }
-  h2.section-title{ font-family:var(--font-display); font-weight:600; font-size:clamp(1.8rem, 3.4vw, 2.7rem); margin-bottom:16px; letter-spacing:-0.01em; }
-  p.section-lead{ color:var(--muted); max-width:560px; font-size:1.02rem; margin-bottom: 40px; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--ivory);font-family:var(--font-body);line-height:1.55;-webkit-font-smoothing:antialiased;padding-top:80px;padding-bottom:110px;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  .container{width:min(1200px,94%);margin-inline:auto;}
 
-  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:14px 26px; border-radius:3px; font-weight:600; font-size:0.92rem; cursor:pointer; border:1px solid transparent; transition:all .25s ease; white-space:nowrap; }
-  .btn-primary{ background:linear-gradient(180deg, var(--brass-light), var(--brass)); color:#20140a; }
-  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 14px 30px -10px rgba(192,139,62,0.55); }
+  .eyebrow{font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--brass-light);display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--brass);}
+  h2.section-title{font-family:var(--font-display);font-weight:600;font-size:clamp(1.8rem,3.4vw,2.7rem);margin-bottom:12px;letter-spacing:-0.01em;}
+  p.section-lead{color:var(--muted);max-width:580px;font-size:1rem;margin-bottom:24px;}
 
-  header{ position:fixed; top:0; left:0; right:0; z-index:100; padding:14px 0; background:rgba(12,25,29,0.95); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); box-shadow:0 10px 30px -20px rgba(0,0,0,0.6); }
-  nav.container{ display:flex; align-items:center; justify-content:space-between; }
-  .logo{ display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-size:1.35rem; font-weight:700; letter-spacing:0.01em; }
-  .logo-mark{ width:34px; height:34px; border-radius:50%; border:1.5px solid var(--brass-light); display:flex; align-items:center; justify-content:center; color:var(--brass-light); }
-  .logo small{ display:block; font-family:var(--font-mono); font-size:0.55rem; letter-spacing:0.16em; color:var(--muted); font-weight:500; text-transform:uppercase; }
+  /* Header */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 0;background:rgba(12,25,29,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);box-shadow:0 10px 30px -20px rgba(0,0,0,0.6);}
+  nav.container{display:flex;align-items:center;justify-content:space-between;}
+  .logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-size:1.35rem;font-weight:700;}
+  .logo-mark{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--brass-light);display:flex;align-items:center;justify-content:center;color:var(--brass-light);}
+  .logo small{display:block;font-family:var(--font-mono);font-size:0.55rem;letter-spacing:0.16em;color:var(--muted);font-weight:500;text-transform:uppercase;}
+  .nav-links{display:flex;gap:28px;}
+  .nav-links a{font-size:0.88rem;color:var(--muted);transition:color .2s;}
+  .nav-links a:hover{color:var(--brass-light);}
 
-  .filters{ display:flex; gap:10px; margin-bottom: 30px;}
-  .filter-btn{ font-family:var(--font-mono); font-size:0.75rem; letter-spacing:0.06em; text-transform:uppercase; padding:9px 16px; border-radius:20px; border:1px solid var(--line); background:transparent; color:var(--muted); cursor:pointer; transition:all .25s ease; }
-  .filter-btn.active, .filter-btn:hover{ border-color:var(--brass-light); color:var(--brass-light); }
+  /* Filtros */
+  .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px;}
+  .filter-btn{font-family:var(--font-mono);font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;padding:9px 18px;border-radius:20px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;transition:all .25s ease;}
+  .filter-btn.active,.filter-btn:hover{border-color:var(--brass-light);color:var(--brass-light);}
+  .filter-btn.active{background:rgba(192,139,62,0.1);}
 
   /* Tabela */
-  .container-tabela { overflow-x:auto; border-radius:8px; border:1px solid var(--line); background:var(--surface); box-shadow:var(--shadow-lg); }
-  table.planilha { width:100%; min-width:1000px; border-collapse:collapse; text-align:left; }
-  table.planilha th { background:var(--bg-alt); color:var(--brass-light); font-family:var(--font-display); padding:16px; font-size:0.85rem; letter-spacing:0.05em; text-transform:uppercase; border-bottom:1px solid var(--line); }
-  table.planilha td { padding:14px 16px; border-bottom:1px solid var(--line); font-family:var(--font-mono); font-size:0.85rem; color:var(--ivory); white-space:nowrap; }
-  table.planilha tbody tr:hover { background:var(--surface-2); }
-  table.planilha td.destaque-credito { color:var(--brass-light); font-weight:600; font-size:0.95rem; }
-  
-  .status-disp { background:rgba(76,138,106,0.15); color:var(--emerald); padding:4px 10px; border-radius:20px; font-size:0.7rem; border:1px solid var(--emerald); text-transform:uppercase; letter-spacing:0.05em;}
-  .status-reser { background:rgba(182,66,63,0.15); color:var(--stamp); padding:4px 10px; border-radius:20px; font-size:0.7rem; border:1px solid var(--stamp); text-transform:uppercase; letter-spacing:0.05em;}
-  
-  .btn-negociar-linha { font-family:var(--font-mono); font-size:0.7rem; text-transform:uppercase; background:transparent; color:var(--brass-light); border:1px solid var(--brass-light); padding:6px 12px; border-radius:4px; cursor:pointer; transition:all 0.3s; }
-  .btn-negociar-linha:hover { background:var(--brass-light); color:#20140a; transform:translateY(-2px); }
-  table.planilha input[type="checkbox"] { accent-color:var(--brass); width:16px; height:16px; cursor:pointer; }
-  
-  /* Barra de Somas Flutuante */
-  .barra-soma { position:fixed; bottom:0; left:0; right:0; background:rgba(12,25,29,0.96); backdrop-filter:blur(10px); border-top:1px solid var(--brass); padding:15px 5%; display:flex; justify-content:space-between; align-items:center; z-index:100; flex-wrap:wrap; gap:15px; box-shadow:0 -10px 30px rgba(0,0,0,0.5); }
-  .barra-info { display:flex; flex-wrap:wrap; gap:24px; flex:1; }
-  .barra-info div { font-family:var(--font-mono); font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em;}
-  .barra-info span { display:block; font-size:1.1rem; color:var(--brass-light); font-weight:600; margin-top:4px; font-family:var(--font-body);}
+  .container-tabela{overflow-x:auto;border-radius:10px;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow-lg);}
+  table.planilha{width:100%;min-width:900px;border-collapse:collapse;text-align:left;}
+  table.planilha th{background:var(--bg-alt);color:var(--brass-light);font-family:var(--font-display);padding:14px 16px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid var(--line);white-space:nowrap;}
+  table.planilha td{padding:12px 16px;border-bottom:1px solid var(--line);font-family:var(--font-mono);font-size:0.82rem;color:var(--ivory);white-space:nowrap;}
+  table.planilha tbody tr:last-child td{border-bottom:none;}
+  table.planilha tbody tr:hover{background:var(--surface-2);}
+  td.destaque-credito{color:var(--brass-light);font-weight:600;font-size:0.9rem;}
+  .status-disp{background:rgba(76,138,106,0.15);color:#6ec897;padding:4px 10px;border-radius:20px;font-size:0.68rem;border:1px solid rgba(76,138,106,0.5);text-transform:uppercase;letter-spacing:0.05em;}
+  .status-reser{background:rgba(182,66,63,0.15);color:#e07a77;padding:4px 10px;border-radius:20px;font-size:0.68rem;border:1px solid rgba(182,66,63,0.5);text-transform:uppercase;letter-spacing:0.05em;}
+  .btn-negociar-linha{font-family:var(--font-mono);font-size:0.68rem;text-transform:uppercase;letter-spacing:0.05em;background:transparent;color:var(--brass-light);border:1px solid var(--brass-light);padding:6px 12px;border-radius:4px;cursor:pointer;transition:all 0.22s;display:inline-block;}
+  .btn-negociar-linha:hover{background:var(--brass-light);color:#20140a;}
+  table.planilha input[type=checkbox]{accent-color:var(--brass);width:16px;height:16px;cursor:pointer;vertical-align:middle;}
 
-  @media (max-width: 980px){
-    .nav-links{ display:none; }
+  /* PaginaÃ§Ã£o */
+  .paginacao{display:flex;align-items:center;justify-content:center;gap:6px;padding:16px;flex-wrap:wrap;border-top:1px solid var(--line);background:var(--bg-alt);border-radius:0 0 10px 10px;}
+  .pag-btn{font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.04em;padding:7px 13px;border-radius:6px;border:1px solid var(--line);background:var(--surface);color:var(--muted);cursor:pointer;transition:all .2s ease;}
+  .pag-btn:hover:not([disabled]){border-color:var(--brass-light);color:var(--brass-light);}
+  .pag-btn.ativo{background:var(--brass);border-color:var(--brass);color:#20140a;font-weight:700;}
+  .pag-btn[disabled]{opacity:0.28;cursor:default;}
+  .pag-info{font-family:var(--font-mono);font-size:0.7rem;color:var(--muted);padding:0 4px;}
+  .pag-total{font-family:var(--font-mono);font-size:0.72rem;color:var(--brass-light);padding:0 6px;font-weight:600;}
+
+  /* Barra flutuante */
+  .barra-soma{position:fixed;bottom:0;left:0;right:0;background:rgba(12,25,29,0.97);backdrop-filter:blur(10px);border-top:1px solid var(--brass);padding:14px 5%;display:flex;justify-content:space-between;align-items:center;z-index:100;flex-wrap:wrap;gap:12px;box-shadow:0 -10px 30px rgba(0,0,0,0.5);}
+  .barra-info{display:flex;flex-wrap:wrap;gap:22px;flex:1;}
+  .barra-info div{font-family:var(--font-mono);font-size:0.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;}
+  .barra-info span{display:block;font-size:1.05rem;color:var(--brass-light);font-weight:600;margin-top:3px;}
+  .btn-pacote{display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border-radius:4px;font-weight:700;font-size:0.9rem;cursor:pointer;border:none;background:linear-gradient(180deg,var(--brass-light),var(--brass));color:#20140a;transition:all .25s ease;white-space:nowrap;}
+  .btn-pacote:hover{transform:translateY(-2px);box-shadow:0 12px 28px -8px rgba(192,139,62,0.5);}
+
+  /* SecÃ§Ã£o header */
+  .section-header{padding:32px 0 20px;}
+
+  @media(max-width:640px){
+    .barra-soma{padding:12px 4%;}
+    .barra-info{gap:12px;}
+    .paginacao{gap:4px;}
+    .pag-btn{padding:6px 10px;font-size:0.68rem;}
+    .nav-links{display:none;}
   }
 </style>
 </head>
 <body>
 
-<header id="siteHeader">
+<header>
   <nav class="container">
     <a href="index.html" class="logo">
       <span class="logo-mark" aria-hidden="true">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11.5 11.5L21 21M21 21V16M21 21H16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </span>
-      <span>CHAVE<small>Consórcios</small></span>
+      <span>CHAVE<small>ConsÃ³rcios</small></span>
     </a>
     <ul class="nav-links">
-      <li><a href="index.html" style="font-size:0.88rem; color:var(--ivory); opacity:0.85; transition:opacity .2s, color .2s;">Voltar para o Início</a></li>
+      <li><a href="index.html">InÃ­cio</a></li>
+      <li><a href="consorcio.html">ConsÃ³rcio Maggi</a></li>
+      <li><a href="cartas.html" style="color:var(--brass-light);font-weight:600;">Cartas Contempladas</a></li>
     </ul>
   </nav>
 </header>
 
-<section class="container">
+<div class="container section-header">
   <div class="eyebrow">Estoque Completo</div>
   <h2 class="section-title">Nossa vitrine exclusiva</h2>
-  <p class="section-lead">Selecione as cartas de interesse abaixo para somar os valores e negociar um pacote pelo WhatsApp. (As cartas reservadas também podem ser negociadas).</p>
-  
+  <p class="section-lead">Selecione as cartas de interesse abaixo para somar os valores e negociar um pacote pelo WhatsApp. (As cartas reservadas tambÃ©m podem ser negociadas).</p>
+
   <div class="filters">
-    <button class="filter-btn active filter-planilha" onclick="filtrarPlanilha('Todas', this)">Todas</button>
-    <button class="filter-btn filter-planilha" onclick="filtrarPlanilha('Veículo', this)">Veículos</button>
-    <button class="filter-btn filter-planilha" onclick="filtrarPlanilha('Imóvel', this)">Imóveis</button>
+    <button class="filter-btn active filter-planilha" onclick="filtrarPlanilha('Todas',this)">Todas</button>
+    <button class="filter-btn filter-planilha" onclick="filtrarPlanilha('VeÃ­culo',this)">VeÃ­culos</button>
+    <button class="filter-btn filter-planilha" onclick="filtrarPlanilha('ImÃ³vel',this)">ImÃ³veis</button>
   </div>
 
   <div class="container-tabela">
-      <table class="planilha">
-          <thead>
-              <tr>
-                  <th>Sel.</th>
-                  <th>ID</th>
-                  <th>Categoria</th>
-                  <th>Crédito</th>
-                  <th>Entrada</th>
-                  <th>Prazo</th>
-                  <th>Parcela</th>
-                  <th>ADM</th>
-                  <th>Status</th>
-                  <th>Ação</th>
-              </tr>
-          </thead>
-          <tbody id="tabela-corpo">
-              <!-- Populado automaticamente pelo Script CSV -->
-          </tbody>
-      </table>
+    <table class="planilha">
+      <thead>
+        <tr>
+          <th>Sel.</th><th>ID</th><th>Categoria</th><th>CrÃ©dito</th>
+          <th>Entrada</th><th>Prazo</th><th>Parcela</th><th>ADM</th>
+          <th>Status</th><th>AÃ§Ã£o</th>
+        </tr>
+      </thead>
+      <tbody id="tabela-corpo"></tbody>
+    </table>
+    <div class="paginacao" id="paginacao"></div>
   </div>
-</section>
+</div>
 
-<!-- Barra de Somas Flutuante -->
-<div class="barra-soma" id="barra-soma" style="display: none;">
-    <div class="barra-info">
-        <div>Qtd <span id="soma-qtd">0</span></div>
-        <div>Crédito <span id="soma-credito">R$ 0,00</span></div>
-        <div>Entrada <span id="soma-entrada">R$ 0,00</span></div>
-        <div>Parcela <span id="soma-parcela">R$ 0,00</span></div>
-    </div>
-    <button class="btn btn-primary" onclick="enviarPacoteWhatsApp()">Negociar Pacote</button>
+<!-- Barra flutuante de somas -->
+<div class="barra-soma" id="barra-soma" style="display:none;">
+  <div class="barra-info">
+    <div>Selecionadas<span id="soma-qtd">0</span></div>
+    <div>CrÃ©dito Total<span id="soma-credito">R$ 0,00</span></div>
+    <div>Entrada Total<span id="soma-entrada">R$ 0,00</span></div>
+    <div>Parcelas/mÃªs<span id="soma-parcela">R$ 0,00</span></div>
+  </div>
+  <button class="btn-pacote" onclick="enviarPacote()">ðŸ’¬ Negociar Pacote</button>
 </div>
 
 <script>
-  let dadosGlobais = [];
-  let selecionadas = [];
-  const SEU_WHATSAPP = "5517996482578";
+// =====================================================================
+// DADOS INLINE â€” convertidos do CSV (sem pedido HTTP extra)
+// Performance: de ~20s no cel â†’ <1s (elimina 2.Âª viagem de rede)
+// =====================================================================
+const CARTAS = [{"i":"9015","c":"Imóvel","cr":"R$ 1.349.854,90","e":"R$ 662.600,00","p":"231","pa":"R$ 7.200,48","a":"HS","d":"R"},{"i":"9253","c":"Imóvel","cr":"R$ 1.349.431,24","e":"R$ 662.250,00","p":"188","pa":"R$ 8.176,28","a":"HS","d":"R"},{"i":"9035","c":"Imóvel","cr":"R$ 1.079.692,57","e":"R$ 527.840,00","p":"198","pa":"R$ 6.433,52","a":"HS","d":"R"},{"i":"9179","c":"Imóvel","cr":"R$ 828.986,26","e":"R$ 400.780,00","p":"171","pa":"R$ 5.921,81","a":"HS","d":"R"},{"i":"9207","c":"Imóvel","cr":"R$ 782.322,38","e":"R$ 379.842,00","p":"195","pa":"R$ 5.002,19","a":"HS","d":"R"},{"i":"9034","c":"Imóvel","cr":"R$ 581.438,77","e":"R$ 285.820,00","p":"180","pa":"R$ 3.939,92","a":"HS","d":"R"},{"i":"9093","c":"Imóvel","cr":"R$ 567.550,59","e":"R$ 277.470,00","p":"174","pa":"R$ 3.708,37","a":"HS","d":"R"},{"i":"5044","c":"Veículo","cr":"R$ 551.949,15","e":"R$ 279.900,00","p":"70","pa":"R$ 8.823,83","a":"HS","d":"R"},{"i":"9219","c":"Imóvel","cr":"R$ 530.821,58","e":"R$ 261.605,00","p":"201","pa":"R$ 3.111,05","a":"HS","d":"R"},{"i":"9243","c":"Imóvel","cr":"R$ 530.408,33","e":"R$ 267.200,00","p":"145","pa":"R$ 3.927,83","a":"HS","d":"R"},{"i":"9246","c":"Imóvel","cr":"R$ 516.156,87","e":"R$ 249.530,00","p":"169","pa":"R$ 3.648,28","a":"HS","d":"R"},{"i":"6071","c":"Imóvel","cr":"R$ 500.000,00","e":"R$ 245.000,00","p":"219","pa":"R$ 2.801,83","a":"HS","d":"R"},{"i":"9163","c":"Imóvel","cr":"R$ 497.464,03","e":"R$ 243.760,00","p":"214","pa":"R$ 2.821,46","a":"HS","d":"R"},{"i":"9151","c":"Imóvel","cr":"R$ 490.668,76","e":"R$ 238.900,00","p":"190","pa":"R$ 3.120,04","a":"HS","d":"R"},{"i":"8069","c":"Imóvel","cr":"R$ 487.664,62","e":"R$ 234.870,00","p":"174","pa":"R$ 3.590,57","a":"HS","d":"R"},{"i":"9362","c":"Imóvel","cr":"R$ 422.238,00","e":"R$ 206.896,00","p":"208","pa":"R$ 2.620,88","a":"HS","d":"R"},{"i":"9261","c":"Imóvel","cr":"R$ 415.997,12","e":"R$ 203.100,00","p":"169","pa":"R$ 2.985,90","a":"HS","d":"R"},{"i":"9051","c":"Imóvel","cr":"R$ 415.993,81","e":"R$ 201.680,00","p":"179","pa":"R$ 2.683,17","a":"HS","d":"R"},{"i":"9274","c":"Imóvel","cr":"R$ 415.610,05","e":"R$ 200.920,00","p":"193","pa":"R$ 2.753,77","a":"HS","d":"R"},{"i":"9343","c":"Imóvel","cr":"R$ 412.984,52","e":"R$ 202.362,00","p":"178","pa":"R$ 2.801,88","a":"HS","d":"R"},{"i":"9300","c":"Imóvel","cr":"R$ 402.422,40","e":"R$ 197.564,00","p":"135","pa":"R$ 3.063,07","a":"HS","d":"D"},{"i":"9370","c":"Imóvel","cr":"R$ 401.773,26","e":"R$ 196.868,00","p":"182","pa":"R$ 2.603,95","a":"HS","d":"R"},{"i":"3805","c":"Veículo","cr":"R$ 400.513,00","e":"R$ 196.900,00","p":"76","pa":"R$ 5.021,90","a":"hs","d":"R"},{"i":"9252","c":"Imóvel","cr":"R$ 400.496,79","e":"R$ 196.250,00","p":"193","pa":"R$ 2.547,73","a":"HS","d":"R"},{"i":"9146","c":"Imóvel","cr":"R$ 400.007,64","e":"R$ 193.530,00","p":"129","pa":"R$ 3.739,06","a":"HS","d":"R"},{"i":"3642","c":"Veículo","cr":"R$ 389.039,72","e":"R$ 176.900,00","p":"82","pa":"R$ 5.300,00","a":"HS","d":"R"},{"i":"9063","c":"Imóvel","cr":"R$ 386.819,74","e":"R$ 188.490,00","p":"203","pa":"R$ 2.419,38","a":"HS","d":"R"},{"i":"9022","c":"Imóvel","cr":"R$ 386.338,31","e":"R$ 188.550,00","p":"204","pa":"R$ 2.392,03","a":"HS","d":"R"},{"i":"3536","c":"Imóvel","cr":"R$ 382.311,00","e":"R$ 204.900,00","p":"30","pa":"R$ 13.773,74","a":"HS","d":"R"},{"i":"9359","c":"Imóvel","cr":"R$ 378.893,27","e":"R$ 185.657,00","p":"133","pa":"R$ 2.970,58","a":"HS","d":"D"},{"i":"9241","c":"Imóvel","cr":"R$ 376.152,15","e":"R$ 187.940,00","p":"44","pa":"R$ 6.437,75","a":"HS","d":"D"},{"i":"9062","c":"Imóvel","cr":"R$ 365.328,08","e":"R$ 176.530,00","p":"212","pa":"R$ 2.202,19","a":"HS","d":"R"},{"i":"9211","c":"Imóvel","cr":"R$ 356.630,78","e":"R$ 172.640,00","p":"213","pa":"R$ 2.172,17","a":"HS","d":"R"},{"i":"9172","c":"Imóvel","cr":"R$ 355.260,49","e":"R$ 172.415,00","p":"212","pa":"R$ 2.169,09","a":"HS","d":"R"},{"i":"3559","c":"Imóvel","cr":"R$ 354.596,82","e":"R$ 169.900,00","p":"130","pa":"R$ 2.608,32","a":"HS","d":"R"},{"i":"6076","c":"Imóvel","cr":"R$ 351.855,45","e":"R$ 172.410,00","p":"217","pa":"R$ 2.144,96","a":"HS","d":"R"},{"i":"9242","c":"Imóvel","cr":"R$ 351.267,84","e":"R$ 172.540,00","p":"161","pa":"R$ 2.425,65","a":"HS","d":"R"},{"i":"9325","c":"Imóvel","cr":"R$ 344.536,30","e":"R$ 171.070,00","p":"58","pa":"R$ 5.056,16","a":"HS","d":"D"},{"i":"9087","c":"Imóvel","cr":"R$ 327.685,95","e":"R$ 160.480,00","p":"168","pa":"R$ 2.208,07","a":"HS","d":"R"},{"i":"9318","c":"Imóvel","cr":"R$ 319.980,11","e":"R$ 157.226,00","p":"179","pa":"R$ 2.172,32","a":"HS","d":"D"},{"i":"9094","c":"Imóvel","cr":"R$ 319.840,81","e":"R$ 155.460,00","p":"126","pa":"R$ 2.691,22","a":"HS","d":"R"},{"i":"9206","c":"Imóvel","cr":"R$ 303.383,18","e":"R$ 147.795,00","p":"146","pa":"R$ 2.324,50","a":"HS","d":"R"},{"i":"9312","c":"Veículo","cr":"R$ 302.677,97","e":"R$ 148.312,00","p":"124","pa":"R$ 2.798,08","a":"HS","d":"R"},{"i":"9245","c":"Imóvel","cr":"R$ 300.602,66","e":"R$ 147.000,00","p":"196","pa":"R$ 1.858,95","a":"HS","d":"R"},{"i":"9365","c":"Veículo","cr":"R$ 292.324,11","e":"R$ 143.238,00","p":"123","pa":"R$ 2.708,05","a":"HS","d":"R"},{"i":"9200","c":"Imóvel","cr":"R$ 289.804,97","e":"R$ 140.710,00","p":"103","pa":"R$ 2.723,28","a":"HS","d":"R"},{"i":"9222","c":"Imóvel","cr":"R$ 286.433,22","e":"R$ 139.700,00","p":"168","pa":"R$ 2.114,50","a":"HS","d":"R"},{"i":"9235","c":"Imóvel","cr":"R$ 285.574,88","e":"R$ 140.960,00","p":"102","pa":"R$ 2.843,91","a":"HS","d":"R"},{"i":"9240","c":"Veículo","cr":"R$ 285.263,50","e":"R$ 139.780,00","p":"127","pa":"R$ 2.690,68","a":"HS","d":"R"},{"i":"9248","c":"Imóvel","cr":"R$ 276.639,09","e":"R$ 133.740,00","p":"92","pa":"R$ 3.104,74","a":"HS","d":"D"},{"i":"9033","c":"Imóvel","cr":"R$ 271.953,34","e":"R$ 133.520,00","p":"182","pa":"R$ 1.831,06","a":"HS","d":"R"},{"i":"2708","c":"Imóvel","cr":"R$ 247.300,00","e":"R$ 109.900,00","p":"64","pa":"R$ 3.638,00","a":"HSA","d":"R"},{"i":"3695","c":"Imóvel","cr":"R$ 240.159,41","e":"R$ 119.900,00","p":"139","pa":"R$ 1.965,03","a":"HS","d":"R"},{"i":"5095","c":"Veículo","cr":"R$ 236.039,26","e":"R$ 129.900,00","p":"72","pa":"R$ 2.785,83","a":"HS","d":"R"},{"i":"9297","c":"Imóvel","cr":"R$ 232.796,97","e":"R$ 113.522,00","p":"178","pa":"R$ 1.649,40","a":"HS","d":"D"},{"i":"9313","c":"Imóvel","cr":"R$ 230.688,26","e":"R$ 112.540,00","p":"182","pa":"R$ 1.576,76","a":"HS","d":"D"},{"i":"7027","c":"Veículo","cr":"R$ 230.047,92","e":"R$ 112.800,00","p":"70","pa":"R$ 2.425,43","a":"HS","d":"R"},{"i":"5098","c":"Veículo","cr":"R$ 228.969,60","e":"R$ 129.900,00","p":"71","pa":"R$ 2.244,98","a":"HS","d":"R"},{"i":"8080","c":"Veículo","cr":"R$ 226.276,17","e":"R$ 109.500,00","p":"97","pa":"R$ 2.560,15","a":"HS","d":"R"},{"i":"2693","c":"Imóvel","cr":"R$ 226.012,00","e":"R$ 94.900,00","p":"143","pa":"R$ 2.144,82","a":"HS","d":"R"},{"i":"9228","c":"Veículo","cr":"R$ 220.245,28","e":"R$ 107.878,00","p":"105","pa":"R$ 2.401,75","a":"HS","d":"R"},{"i":"3759","c":"Veículo","cr":"R$ 218.874,37","e":"R$ 129.900,00","p":"76","pa":"R$ 2.245,12","a":"HS","d":"R"},{"i":"8089","c":"Imóvel","cr":"R$ 215.650,88","e":"R$ 105.350,00","p":"159","pa":"R$ 1.516,54","a":"HS","d":"R"},{"i":"7037","c":"Imóvel","cr":"R$ 214.981,81","e":"R$ 105.400,00","p":"122","pa":"R$ 1.296,47","a":"HS","d":"R"},{"i":"9283","c":"Imóvel","cr":"R$ 212.825,71","e":"R$ 105.250,00","p":"82","pa":"R$ 2.303,48","a":"HS","d":"D"},{"i":"9290","c":"Imóvel","cr":"R$ 206.796,20","e":"R$ 100.844,00","p":"172","pa":"R$ 1.500,72","a":"HS","d":"R"},{"i":"9192","c":"Imóvel","cr":"R$ 206.140,24","e":"R$ 100.560,00","p":"156","pa":"R$ 1.583,22","a":"HS","d":"R"},{"i":"9234","c":"Imóvel","cr":"R$ 205.424,55","e":"R$ 100.905,00","p":"166","pa":"R$ 1.380,84","a":"HS","d":"R"},{"i":"9158","c":"Imóvel","cr":"R$ 200.143,01","e":"R$ 98.070,00","p":"183","pa":"R$ 1.262,55","a":"HS","d":"R"},{"i":"9299","c":"Imóvel","cr":"R$ 199.891,89","e":"R$ 98.000,00","p":"194","pa":"R$ 1.245,76","a":"HS","d":"R"},{"i":"9171","c":"Imóvel","cr":"R$ 195.680,56","e":"R$ 94.605,00","p":"181","pa":"R$ 1.346,90","a":"HS","d":"R"},{"i":"9012","c":"Imóvel","cr":"R$ 193.484,58","e":"R$ 94.430,00","p":"175","pa":"R$ 1.347,47","a":"HS","d":"R"},{"i":"4046","c":"Imóvel","cr":"R$ 192.577,22","e":"R$ 90.000,00","p":"121","pa":"R$ 1.708,94","a":"HS","d":"R"},{"i":"9353","c":"Veículo","cr":"R$ 192.393,40","e":"R$ 94.272,00","p":"90","pa":"R$ 2.270,20","a":"HS","d":"D"},{"i":"9330","c":"Imóvel","cr":"R$ 192.082,00","e":"R$ 94.120,00","p":"179","pa":"R$ 1.327,64","a":"HS","d":"D"},{"i":"9250","c":"Imóvel","cr":"R$ 192.012,71","e":"R$ 93.750,00","p":"183","pa":"R$ 1.311,23","a":"HS","d":"R"},{"i":"8061","c":"Veículo","cr":"R$ 188.845,29","e":"R$ 93.000,00","p":"95","pa":"R$ 2.117,51","a":"HS","d":"R"},{"i":"9104","c":"Imóvel","cr":"R$ 187.702,52","e":"R$ 91.850,00","p":"86","pa":"R$ 1.973,95","a":"HS","d":"R"},{"i":"9055","c":"Imóvel","cr":"R$ 185.954,85","e":"R$ 91.690,00","p":"102","pa":"R$ 2.038,76","a":"HS","d":"R"},{"i":"6028","c":"Veículo","cr":"R$ 185.257,42","e":"R$ 90.000,00","p":"98","pa":"R$ 2.037,38","a":"HS","d":"R"},{"i":"9249","c":"Imóvel","cr":"R$ 183.408,50","e":"R$ 95.374,00","p":"86","pa":"R$ 1.956,98","a":"HS","d":"R"},{"i":"9295","c":"Imóvel","cr":"R$ 182.492,78","e":"R$ 88.598,00","p":"186","pa":"R$ 1.313,70","a":"HS","d":"R"},{"i":"9189","c":"Imóvel","cr":"R$ 181.107,93","e":"R$ 88.690,00","p":"183","pa":"R$ 1.282,21","a":"HS","d":"R"},{"i":"9129","c":"Imóvel","cr":"R$ 177.567,93","e":"R$ 86.340,00","p":"186","pa":"R$ 1.294,45","a":"HS","d":"R"},{"i":"9114","c":"Veículo","cr":"R$ 172.061,04","e":"R$ 84.310,00","p":"54","pa":"R$ 3.078,00","a":"HS","d":"R"},{"i":"3584","c":"Imóvel","cr":"R$ 168.802,00","e":"R$ 79.900,00","p":"39","pa":"R$ 4.344,16","a":"HS","d":"R"},{"i":"9100","c":"Imóvel","cr":"R$ 166.818,71","e":"R$ 81.380,00","p":"143","pa":"R$ 1.356,38","a":"HS","d":"R"},{"i":"7070","c":"Imóvel","cr":"R$ 166.325,30","e":"R$ 82.900,00","p":"137","pa":"R$ 1.303,61","a":"HS","d":"R"},{"i":"9183","c":"Imóvel","cr":"R$ 166.059,38","e":"R$ 80.282,00","p":"150","pa":"R$ 1.299,39","a":"HS","d":"R"},{"i":"9273","c":"Imóvel","cr":"R$ 165.444,61","e":"R$ 80.076,00","p":"142","pa":"R$ 1.349,77","a":"HS","d":"R"},{"i":"9001","c":"Imóvel","cr":"R$ 161.678,46","e":"R$ 78.050,00","p":"136","pa":"R$ 1.394,00","a":"HS","d":"R"},{"i":"8046","c":"Imóvel","cr":"R$ 161.008,67","e":"R$ 80.170,00","p":"79","pa":"R$ 1.805,29","a":"HS","d":"R"},{"i":"9284","c":"Veículo","cr":"R$ 159.875,91","e":"R$ 79.940,00","p":"62","pa":"R$ 2.361,25","a":"HS","d":"R"},{"i":"9133","c":"Imóvel","cr":"R$ 159.740,37","e":"R$ 76.830,00","p":"61","pa":"R$ 2.100,04","a":"HS","d":"R"},{"i":"9126","c":"Imóvel","cr":"R$ 159.043,69","e":"R$ 76.860,00","p":"142","pa":"R$ 1.362,92","a":"HS","d":"R"},{"i":"9169","c":"Imóvel","cr":"R$ 157.872,40","e":"R$ 76.325,00","p":"125","pa":"R$ 1.429,05","a":"HS","d":"R"},{"i":"9216","c":"Imóvel","cr":"R$ 157.813,32","e":"R$ 76.970,00","p":"94","pa":"R$ 1.378,47","a":"HS","d":"R"},{"i":"9260","c":"Imóvel","cr":"R$ 157.187,53","e":"R$ 75.990,00","p":"176","pa":"R$ 1.078,93","a":"HS","d":"D"},{"i":"9003","c":"Imóvel","cr":"R$ 156.784,39","e":"R$ 75.700,00","p":"184","pa":"R$ 1.060,05","a":"HS","d":"R"},{"i":"9292","c":"Imóvel","cr":"R$ 155.093,60","e":"R$ 75.297,00","p":"180","pa":"R$ 1.063,19","a":"HS","d":"R"},{"i":"9356","c":"Imóvel","cr":"R$ 152.840,41","e":"R$ 74.892,00","p":"84","pa":"R$ 1.671,51","a":"HS","d":"D"},{"i":"8058","c":"Imóvel","cr":"R$ 151.908,84","e":"R$ 73.300,00","p":"84","pa":"R$ 1.495,38","a":"HS","d":"R"},{"i":"9288","c":"Imóvel","cr":"R$ 151.854,47","e":"R$ 74.051,00","p":"175","pa":"R$ 1.081,33","a":"HS","d":"D"},{"i":"8007","c":"Imóvel","cr":"R$ 150.005,17","e":"R$ 73.000,00","p":"128","pa":"R$ 1.284,25","a":"HS","d":"R"},{"i":"9054","c":"Imóvel","cr":"R$ 149.735,37","e":"R$ 72.630,00","p":"136","pa":"R$ 1.217,83","a":"HS","d":"R"},{"i":"9354","c":"Imóvel","cr":"R$ 149.683,36","e":"R$ 73.344,00","p":"129","pa":"R$ 1.271,89","a":"HS","d":"D"},{"i":"8098","c":"Veículo","cr":"R$ 149.002,84","e":"R$ 73.400,00","p":"110","pa":"R$ 1.533,31","a":"HS","d":"R"},{"i":"9085","c":"Veículo","cr":"R$ 148.955,93","e":"R$ 71.980,00","p":"96","pa":"R$ 1.806,55","a":"HS","d":"R"},{"i":"9298","c":"Imóvel","cr":"R$ 148.167,97","e":"R$ 72.254,00","p":"147","pa":"R$ 1.193,60","a":"HS","d":"D"},{"i":"8043","c":"Imóvel","cr":"R$ 147.071,66","e":"R$ 71.270,00","p":"189","pa":"R$ 950,73","a":"HS","d":"R"},{"i":"9138","c":"Imóvel","cr":"R$ 146.960,37","e":"R$ 70.880,00","p":"191","pa":"R$ 973,75","a":"HS","d":"R"},{"i":"9134","c":"Imóvel","cr":"R$ 146.956,57","e":"R$ 70.890,00","p":"189","pa":"R$ 977,53","a":"HS","d":"R"},{"i":"9257","c":"Veículo","cr":"R$ 146.771,64","e":"R$ 71.920,00","p":"104","pa":"R$ 1.594,80","a":"HS","d":"R"},{"i":"7058","c":"Imóvel","cr":"R$ 145.556,78","e":"R$ 69.100,00","p":"189","pa":"R$ 949,30","a":"HS","d":"R"},{"i":"8000","c":"Imóvel","cr":"R$ 145.535,95","e":"R$ 69.200,00","p":"189","pa":"R$ 952,45","a":"HS","d":"R"},{"i":"9322","c":"Veículo","cr":"R$ 145.160,28","e":"R$ 71.130,00","p":"79","pa":"R$ 1.765,25","a":"HS","d":"R"},{"i":"9032","c":"Veículo","cr":"R$ 144.906,01","e":"R$ 69.960,00","p":"78","pa":"R$ 1.896,82","a":"HS","d":"R"},{"i":"9191","c":"Imóvel","cr":"R$ 143.681,43","e":"R$ 69.470,00","p":"114","pa":"R$ 1.313,67","a":"HS","d":"R"},{"i":"9195","c":"Imóvel","cr":"R$ 143.560,92","e":"R$ 70.266,00","p":"103","pa":"R$ 1.338,09","a":"HS","d":"R"},{"i":"3897","c":"Imóvel","cr":"R$ 143.497,99","e":"R$ 67.900,00","p":"43","pa":"R$ 3.537,78","a":"HS","d":"R"},{"i":"9106","c":"Imóvel","cr":"R$ 143.198,59","e":"R$ 69.070,00","p":"187","pa":"R$ 961,75","a":"HS","d":"R"},{"i":"9004","c":"Imóvel","cr":"R$ 143.088,28","e":"R$ 69.100,00","p":"194","pa":"R$ 951,05","a":"HS","d":"R"},{"i":"9229","c":"Imóvel","cr":"R$ 141.887,17","e":"R$ 70.030,00","p":"102","pa":"R$ 1.341,57","a":"HS","d":"R"},{"i":"9291","c":"Imóvel","cr":"R$ 141.640,36","e":"R$ 69.070,00","p":"188","pa":"R$ 981,38","a":"HS","d":"D"},{"i":"9334","c":"Imóvel","cr":"R$ 140.960,00","e":"R$ 69.070,00","p":"197","pa":"R$ 945,91","a":"HS","d":"D"},{"i":"9092","c":"Imóvel","cr":"R$ 140.474,99","e":"R$ 69.670,00","p":"91","pa":"R$ 1.540,41","a":"HS","d":"R"},{"i":"9123","c":"Imóvel","cr":"R$ 137.523,21","e":"R$ 67.060,00","p":"73","pa":"R$ 1.600,32","a":"HS","d":"R"},{"i":"9266","c":"Veículo","cr":"R$ 136.637,44","e":"R$ 66.954,00","p":"92","pa":"R$ 1.640,00","a":"HS","d":"R"},{"i":"9336","c":"Imóvel","cr":"R$ 136.585,38","e":"R$ 66.927,00","p":"153","pa":"R$ 1.015,70","a":"HS","d":"D"},{"i":"8055","c":"Imóvel","cr":"R$ 136.532,72","e":"R$ 67.450,00","p":"68","pa":"R$ 1.348,71","a":"HS","d":"R"},{"i":"8096","c":"Imóvel","cr":"R$ 135.665,47","e":"R$ 66.450,00","p":"137","pa":"R$ 919,18","a":"HS","d":"R"},{"i":"9319","c":"Imóvel","cr":"R$ 135.299,96","e":"R$ 66.564,00","p":"149","pa":"R$ 1.026,84","a":"HS","d":"D"},{"i":"9190","c":"Veículo","cr":"R$ 133.474,71","e":"R$ 64.780,00","p":"71","pa":"R$ 2.315,83","a":"HS","d":"R"},{"i":"9369","c":"Veículo","cr":"R$ 132.000,32","e":"R$ 64.680,00","p":"67","pa":"R$ 1.985,18","a":"HS","d":"R"},{"i":"9005","c":"Imóvel","cr":"R$ 131.762,06","e":"R$ 63.610,00","p":"128","pa":"R$ 1.099,16","a":"HS","d":"R"},{"i":"9159","c":"Imóvel","cr":"R$ 130.265,46","e":"R$ 63.720,00","p":"133","pa":"R$ 1.007,38","a":"HS","d":"R"},{"i":"9310","c":"Imóvel","cr":"R$ 124.659,29","e":"R$ 60.790,00","p":"152","pa":"R$ 978,10","a":"HS","d":"D"},{"i":"9238","c":"Imóvel","cr":"R$ 120.081,44","e":"R$ 58.840,00","p":"171","pa":"R$ 836,69","a":"HS","d":"R"},{"i":"9101","c":"Imóvel","cr":"R$ 119.926,09","e":"R$ 58.630,00","p":"167","pa":"R$ 848,29","a":"HS","d":"R"},{"i":"9326","c":"Imóvel","cr":"R$ 119.709,94","e":"R$ 58.996,00","p":"132","pa":"R$ 877,38","a":"HS","d":"D"},{"i":"9364","c":"Imóvel","cr":"R$ 119.631,69","e":"R$ 58.620,00","p":"126","pa":"R$ 1.109,04","a":"HS","d":"D"},{"i":"9181","c":"Imóvel","cr":"R$ 119.332,26","e":"R$ 57.695,00","p":"143","pa":"R$ 1.008,50","a":"HS","d":"R"},{"i":"9059","c":"Imóvel","cr":"R$ 118.076,39","e":"R$ 57.890,00","p":"133","pa":"R$ 910,60","a":"HS","d":"R"},{"i":"9090","c":"Veículo","cr":"R$ 117.150,57","e":"R$ 59.245,00","p":"72","pa":"R$ 1.805,18","a":"HS","d":"R"},{"i":"9276","c":"Veículo","cr":"R$ 117.094,37","e":"R$ 57.378,00","p":"69","pa":"R$ 1.513,83","a":"HS","d":"R"},{"i":"9294","c":"Imóvel","cr":"R$ 116.391,67","e":"R$ 57.160,00","p":"137","pa":"R$ 920,94","a":"HS","d":"D"},{"i":"7073","c":"Veículo","cr":"R$ 116.243,53","e":"R$ 57.000,00","p":"70","pa":"R$ 1.496,82","a":"HS","d":"R"},{"i":"9268","c":"Imóvel","cr":"R$ 115.892,74","e":"R$ 56.027,00","p":"117","pa":"R$ 1.010,76","a":"HS","d":"D"},{"i":"9307","c":"Imóvel","cr":"R$ 113.956,48","e":"R$ 55.570,00","p":"111","pa":"R$ 1.026,77","a":"HS","d":"D"},{"i":"9308","c":"Veículo","cr":"R$ 113.864,53","e":"R$ 55.794,00","p":"91","pa":"R$ 1.519,84","a":"HS","d":"R"},{"i":"9251","c":"Imóvel","cr":"R$ 113.453,79","e":"R$ 55.594,00","p":"155","pa":"R$ 840,79","a":"HS","d":"R"},{"i":"9302","c":"Imóvel","cr":"R$ 113.013,20","e":"R$ 55.376,00","p":"109","pa":"R$ 1.029,36","a":"HS","d":"R"},{"i":"8087","c":"Imóvel","cr":"R$ 112.514,00","e":"R$ 55.200,00","p":"139","pa":"R$ 909,25","a":"HS","d":"R"},{"i":"9074","c":"Veículo","cr":"R$ 111.686,29","e":"R$ 54.730,00","p":"96","pa":"R$ 1.322,61","a":"HS","d":"R"},{"i":"9282","c":"Veículo","cr":"R$ 110.430,69","e":"R$ 54.010,00","p":"104","pa":"R$ 1.229,32","a":"HS","d":"R"},{"i":"9116","c":"Veículo","cr":"R$ 108.455,32","e":"R$ 52.190,00","p":"107","pa":"R$ 1.211,58","a":"HS","d":"R"},{"i":"9029","c":"Veículo","cr":"R$ 108.261,41","e":"R$ 52.190,00","p":"108","pa":"R$ 1.133,65","a":"HS","d":"R"},{"i":"9340","c":"Imóvel","cr":"R$ 106.278,26","e":"R$ 52.076,00","p":"103","pa":"R$ 1.047,85","a":"HS","d":"R"},{"i":"9303","c":"Veículo","cr":"R$ 104.468,47","e":"R$ 51.190,00","p":"98","pa":"R$ 1.204,94","a":"HS","d":"R"},{"i":"9013","c":"Imóvel","cr":"R$ 103.637,54","e":"R$ 50.600,00","p":"113","pa":"R$ 941,60","a":"HS","d":"R"},{"i":"9044","c":"Imóvel","cr":"R$ 101.752,08","e":"R$ 50.190,00","p":"123","pa":"R$ 850,36","a":"HS","d":"R"},{"i":"9208","c":"Veículo","cr":"R$ 100.951,72","e":"R$ 50.172,00","p":"40","pa":"R$ 2.374,87","a":"HS","d":"R"},{"i":"9058","c":"Imóvel","cr":"R$ 100.000,00","e":"R$ 49.000,00","p":"175","pa":"R$ 693,09","a":"HS","d":"R"},{"i":"9046","c":"Imóvel","cr":"R$ 99.768,77","e":"R$ 48.900,00","p":"170","pa":"R$ 695,22","a":"HS","d":"R"},{"i":"9149","c":"Imóvel","cr":"R$ 96.525,70","e":"R$ 47.680,00","p":"79","pa":"R$ 1.201,53","a":"HS","d":"R"},{"i":"9259","c":"Imóvel","cr":"R$ 95.617,51","e":"R$ 46.684,00","p":"145","pa":"R$ 778,90","a":"HS","d":"R"},{"i":"9139","c":"Veículo","cr":"R$ 95.183,35","e":"R$ 46.640,00","p":"76","pa":"R$ 1.205,16","a":"HS","d":"R"},{"i":"9239","c":"Imóvel","cr":"R$ 93.237,08","e":"R$ 45.690,00","p":"151","pa":"R$ 633,79","a":"HS","d":"R"},{"i":"9258","c":"Imóvel","cr":"R$ 92.255,62","e":"R$ 44.600,00","p":"157","pa":"R$ 709,67","a":"HS","d":"D"},{"i":"9236","c":"Imóvel","cr":"R$ 91.104,69","e":"R$ 44.570,00","p":"118","pa":"R$ 837,55","a":"HS","d":"R"},{"i":"9110","c":"Veículo","cr":"R$ 88.757,26","e":"R$ 43.280,00","p":"102","pa":"R$ 968,16","a":"HS","d":"R"},{"i":"9315","c":"Imóvel","cr":"R$ 88.477,53","e":"R$ 43.181,00","p":"123","pa":"R$ 757,56","a":"HS","d":"D"},{"i":"9011","c":"Imóvel","cr":"R$ 88.437,10","e":"R$ 43.150,00","p":"126","pa":"R$ 750,71","a":"HS","d":"R"},{"i":"9165","c":"Imóvel","cr":"R$ 88.038,25","e":"R$ 42.730,00","p":"167","pa":"R$ 662,73","a":"HS","d":"R"},{"i":"9196","c":"Imóvel","cr":"R$ 87.826,42","e":"R$ 42.460,00","p":"129","pa":"R$ 742,41","a":"HS","d":"R"},{"i":"9152","c":"Veículo","cr":"R$ 86.089,25","e":"R$ 42.070,00","p":"55","pa":"R$ 1.652,01","a":"HS","d":"R"},{"i":"9214","c":"Veículo","cr":"R$ 85.242,54","e":"R$ 41.770,00","p":"108","pa":"R$ 918,16","a":"HS","d":"R"},{"i":"9170","c":"Imóvel","cr":"R$ 85.166,93","e":"R$ 41.730,00","p":"145","pa":"R$ 623,45","a":"HS","d":"R"},{"i":"9233","c":"Imóvel","cr":"R$ 85.157,58","e":"R$ 41.550,00","p":"138","pa":"R$ 733,58","a":"HS","d":"R"},{"i":"9286","c":"Imóvel","cr":"R$ 85.145,55","e":"R$ 41.522,00","p":"168","pa":"R$ 644,27","a":"HS","d":"D"},{"i":"9301","c":"Imóvel","cr":"R$ 85.022,61","e":"R$ 41.662,00","p":"104","pa":"R$ 765,83","a":"HS","d":"R"},{"i":"9178","c":"Imóvel","cr":"R$ 84.736,56","e":"R$ 41.520,00","p":"176","pa":"R$ 635,97","a":"HS","d":"R"},{"i":"9105","c":"Imóvel","cr":"R$ 84.151,09","e":"R$ 41.240,00","p":"130","pa":"R$ 732,66","a":"HS","d":"R"},{"i":"9237","c":"Imóvel","cr":"R$ 83.299,97","e":"R$ 41.062,00","p":"151","pa":"R$ 647,17","a":"HS","d":"R"},{"i":"9008","c":"Imóvel","cr":"R$ 83.277,82","e":"R$ 40.210,00","p":"134","pa":"R$ 694,30","a":"HS","d":"R"},{"i":"9296","c":"Imóvel","cr":"R$ 83.106,20","e":"R$ 40.527,00","p":"152","pa":"R$ 649,84","a":"HS","d":"R"},{"i":"9218","c":"Imóvel","cr":"R$ 83.072,74","e":"R$ 40.520,00","p":"140","pa":"R$ 708,73","a":"HS","d":"R"},{"i":"9017","c":"Imóvel","cr":"R$ 82.863,79","e":"R$ 40.000,00","p":"137","pa":"R$ 708,84","a":"HS","d":"R"},{"i":"9224","c":"Imóvel","cr":"R$ 82.754,87","e":"R$ 40.365,00","p":"138","pa":"R$ 687,38","a":"HS","d":"R"},{"i":"9371","c":"Imóvel","cr":"R$ 82.707,00","e":"R$ 40.526,00","p":"151","pa":"R$ 651,57","a":"HS","d":"D"},{"i":"9360","c":"Imóvel","cr":"R$ 82.467,11","e":"R$ 40.408,88","p":"136","pa":"R$ 701,24","a":"HS","d":"D"},{"i":"9150","c":"Veículo","cr":"R$ 82.449,95","e":"R$ 40.400,00","p":"78","pa":"R$ 957,99","a":"HS","d":"R"},{"i":"9160","c":"Imóvel","cr":"R$ 81.877,62","e":"R$ 40.120,00","p":"114","pa":"R$ 658,88","a":"HS","d":"R"},{"i":"8066","c":"Veículo","cr":"R$ 81.700,11","e":"R$ 39.500,00","p":"75","pa":"R$ 1.163,22","a":"HS","d":"R"},{"i":"9155","c":"Imóvel","cr":"R$ 81.401,92","e":"R$ 39.770,00","p":"137","pa":"R$ 685,09","a":"HS","d":"R"},{"i":"8094","c":"Imóvel","cr":"R$ 81.140,24","e":"R$ 39.210,00","p":"115","pa":"R$ 638,91","a":"HS","d":"R"},{"i":"9332","c":"Imóvel","cr":"R$ 81.039,42","e":"R$ 39.710,00","p":"142","pa":"R$ 657,46","a":"HS","d":"D"},{"i":"9346","c":"Veículo","cr":"R$ 80.414,20","e":"R$ 39.402,00","p":"71","pa":"R$ 1.125,69","a":"HS","d":"D"},{"i":"9363","c":"Veículo","cr":"R$ 80.414,20","e":"R$ 39.402,00","p":"71","pa":"R$ 1.078,62","a":"HS","d":"D"},{"i":"9366","c":"Veículo","cr":"R$ 80.366,81","e":"R$ 39.379,00","p":"80","pa":"R$ 1.121,82","a":"HS","d":"R"},{"i":"9024","c":"Imóvel","cr":"R$ 79.902,07","e":"R$ 38.470,00","p":"143","pa":"R$ 632,15","a":"HS","d":"R"},{"i":"7069","c":"Imóvel","cr":"R$ 79.883,16","e":"R$ 38.300,00","p":"158","pa":"R$ 609,34","a":"HS","d":"R"},{"i":"9329","c":"Imóvel","cr":"R$ 79.530,58","e":"R$ 38.970,00","p":"145","pa":"R$ 639,63","a":"HS","d":"D"},{"i":"9025","c":"Imóvel","cr":"R$ 79.371,12","e":"R$ 38.250,00","p":"161","pa":"R$ 600,26","a":"HS","d":"R"},{"i":"9167","c":"Imóvel","cr":"R$ 79.357,05","e":"R$ 38.250,00","p":"157","pa":"R$ 602,42","a":"HS","d":"D"},{"i":"9010","c":"Imóvel","cr":"R$ 79.278,80","e":"R$ 38.310,00","p":"141","pa":"R$ 719,57","a":"HS","d":"R"},{"i":"9057","c":"Imóvel","cr":"R$ 79.246,36","e":"R$ 38.290,00","p":"157","pa":"R$ 606,14","a":"HS","d":"R"},{"i":"9042","c":"Imóvel","cr":"R$ 79.243,89","e":"R$ 38.240,00","p":"138","pa":"R$ 669,70","a":"HS","d":"D"},{"i":"9185","c":"Imóvel","cr":"R$ 79.203,25","e":"R$ 38.290,00","p":"155","pa":"R$ 618,70","a":"HS","d":"R"},{"i":"9293","c":"Imóvel","cr":"R$ 79.154,11","e":"R$ 38.600,00","p":"142","pa":"R$ 638,85","a":"HS","d":"D"},{"i":"9077","c":"Imóvel","cr":"R$ 79.151,89","e":"R$ 38.250,00","p":"161","pa":"R$ 610,90","a":"HS","d":"R"},{"i":"9262","c":"Imóvel","cr":"R$ 78.984,09","e":"R$ 38.184,00","p":"155","pa":"R$ 607,51","a":"HS","d":"D"},{"i":"9018","c":"Imóvel","cr":"R$ 78.978,11","e":"R$ 37.900,00","p":"160","pa":"R$ 599,08","a":"HS","d":"D"},{"i":"9009","c":"Imóvel","cr":"R$ 78.932,28","e":"R$ 37.950,00","p":"150","pa":"R$ 639,29","a":"HS","d":"D"},{"i":"9164","c":"Imóvel","cr":"R$ 78.689,12","e":"R$ 38.045,00","p":"113","pa":"R$ 717,62","a":"HS","d":"R"},{"i":"9339","c":"Veículo","cr":"R$ 78.212,49","e":"R$ 38.324,00","p":"70","pa":"R$ 1.158,50","a":"HS","d":"D"},{"i":"9337","c":"Imóvel","cr":"R$ 78.051,67","e":"R$ 38.245,00","p":"155","pa":"R$ 622,70","a":"HS","d":"D"},{"i":"9373","c":"Imóvel","cr":"R$ 78.051,67","e":"R$ 38.245,00","p":"155","pa":"R$ 608,50","a":"HS","d":"D"},{"i":"9305","c":"Veículo","cr":"R$ 77.674,24","e":"R$ 38.060,00","p":"84","pa":"R$ 933,31","a":"HS","d":"R"},{"i":"9309","c":"Imóvel","cr":"R$ 77.664,74","e":"R$ 37.872,00","p":"159","pa":"R$ 596,56","a":"HS","d":"D"},{"i":"8011","c":"Veículo","cr":"R$ 75.974,30","e":"R$ 37.500,00","p":"85","pa":"R$ 989,79","a":"HS","d":"R"},{"i":"9043","c":"Veículo","cr":"R$ 75.955,60","e":"R$ 37.750,00","p":"77","pa":"R$ 1.033,97","a":"HS","d":"R"},{"i":"9267","c":"Veículo","cr":"R$ 75.860,44","e":"R$ 37.172,00","p":"77","pa":"R$ 1.037,35","a":"HS","d":"R"},{"i":"9244","c":"Imóvel","cr":"R$ 75.782,25","e":"R$ 37.617,00","p":"141","pa":"R$ 608,23","a":"HS","d":"D"},{"i":"9047","c":"Veículo","cr":"R$ 75.103,88","e":"R$ 36.580,00","p":"75","pa":"R$ 1.134,73","a":"HS","d":"R"},{"i":"9317","c":"Imóvel","cr":"R$ 75.091,35","e":"R$ 37.072,00","p":"113","pa":"R$ 866,26","a":"HS","d":"D"},{"i":"9311","c":"Veículo","cr":"R$ 74.970,03","e":"R$ 36.574,00","p":"76","pa":"R$ 1.183,38","a":"HS","d":"R"},{"i":"9316","c":"Imóvel","cr":"R$ 74.882,04","e":"R$ 36.978,00","p":"110","pa":"R$ 884,14","a":"HS","d":"D"},{"i":"9285","c":"Imóvel","cr":"R$ 74.665,72","e":"R$ 36.590,00","p":"155","pa":"R$ 591,86","a":"HS","d":"D"},{"i":"9049","c":"Imóvel","cr":"R$ 74.658,97","e":"R$ 36.780,00","p":"168","pa":"R$ 533,18","a":"HS","d":"R"},{"i":"9112","c":"Imóvel","cr":"R$ 74.036,93","e":"R$ 35.610,00","p":"169","pa":"R$ 544,27","a":"HS","d":"D"},{"i":"9108","c":"Imóvel","cr":"R$ 74.027,25","e":"R$ 35.610,00","p":"168","pa":"R$ 547,45","a":"HS","d":"D"},{"i":"9007","c":"Imóvel","cr":"R$ 73.894,05","e":"R$ 35.620,00","p":"165","pa":"R$ 582,91","a":"HS","d":"R"},{"i":"9203","c":"Imóvel","cr":"R$ 73.836,07","e":"R$ 35.610,00","p":"165","pa":"R$ 582,46","a":"HS","d":"D"},{"i":"9225","c":"Veículo","cr":"R$ 73.633,83","e":"R$ 36.070,00","p":"100","pa":"R$ 818,07","a":"HS","d":"R"},{"i":"9367","c":"Veículo","cr":"R$ 73.626,88","e":"R$ 36.077,00","p":"54","pa":"R$ 1.414,64","a":"HS","d":"R"},{"i":"9221","c":"Imóvel","cr":"R$ 72.968,40","e":"R$ 35.290,00","p":"118","pa":"R$ 725,71","a":"HS","d":"R"},{"i":"9333","c":"Imóvel","cr":"R$ 72.664,00","e":"R$ 35.606,00","p":"167","pa":"R$ 550,33","a":"HS","d":"D"},{"i":"7064","c":"Imóvel","cr":"R$ 72.563,77","e":"R$ 34.600,00","p":"167","pa":"R$ 533,22","a":"HS","d":"R"},{"i":"8025","c":"Imóvel","cr":"R$ 72.504,09","e":"R$ 34.600,00","p":"165","pa":"R$ 563,44","a":"HS","d":"D"},{"i":"8026","c":"Imóvel","cr":"R$ 72.504,09","e":"R$ 34.600,00","p":"165","pa":"R$ 563,44","a":"HS","d":"D"},{"i":"9204","c":"Imóvel","cr":"R$ 72.367,87","e":"R$ 35.290,00","p":"132","pa":"R$ 659,18","a":"HS","d":"D"},{"i":"9021","c":"Imóvel","cr":"R$ 72.273,08","e":"R$ 34.620,00","p":"168","pa":"R$ 528,10","a":"HS","d":"D"},{"i":"7082","c":"Veículo","cr":"R$ 72.227,22","e":"R$ 35.400,00","p":"85","pa":"R$ 977,62","a":"HS","d":"R"},{"i":"8081","c":"Imóvel","cr":"R$ 72.123,32","e":"R$ 34.600,00","p":"162","pa":"R$ 579,13","a":"HS","d":"D"},{"i":"9109","c":"Imóvel","cr":"R$ 71.934,51","e":"R$ 34.600,00","p":"168","pa":"R$ 533,47","a":"HS","d":"D"},{"i":"9045","c":"Imóvel","cr":"R$ 71.807,26","e":"R$ 34.640,00","p":"175","pa":"R$ 528,01","a":"HS","d":"R"},{"i":"9227","c":"Imóvel","cr":"R$ 71.541,92","e":"R$ 34.600,00","p":"177","pa":"R$ 527,71","a":"HS","d":"R"},{"i":"9166","c":"Imóvel","cr":"R$ 71.398,96","e":"R$ 34.520,00","p":"125","pa":"R$ 599,39","a":"HS","d":"R"},{"i":"9187","c":"Veículo","cr":"R$ 71.322,21","e":"R$ 34.790,00","p":"107","pa":"R$ 767,55","a":"HS","d":"R"},{"i":"9173","c":"Imóvel","cr":"R$ 71.317,09","e":"R$ 34.482,00","p":"121","pa":"R$ 608,46","a":"HS","d":"R"},{"i":"9030","c":"Veículo","cr":"R$ 71.004,82","e":"R$ 34.650,00","p":"110","pa":"R$ 744,59","a":"HS","d":"R"},{"i":"9145","c":"Veículo","cr":"R$ 71.002,00","e":"R$ 34.790,00","p":"108","pa":"R$ 760,81","a":"HS","d":"R"},{"i":"9194","c":"Veículo","cr":"R$ 70.711,24","e":"R$ 36.320,00","p":"115","pa":"R$ 745,62","a":"HS","d":"R"},{"i":"9331","c":"Imóvel","cr":"R$ 70.613,80","e":"R$ 34.600,00","p":"166","pa":"R$ 539,24","a":"HS","d":"D"},{"i":"9107","c":"Imóvel","cr":"R$ 70.460,08","e":"R$ 34.070,00","p":"129","pa":"R$ 608,00","a":"HS","d":"R"},{"i":"9328","c":"Veículo","cr":"R$ 70.268,60","e":"R$ 34.432,00","p":"69","pa":"R$ 1.189,87","a":"HS","d":"D"},{"i":"9061","c":"Veículo","cr":"R$ 70.035,40","e":"R$ 34.320,00","p":"117","pa":"R$ 731,21","a":"HS","d":"R"},{"i":"9082","c":"Veículo","cr":"R$ 70.035,40","e":"R$ 34.320,00","p":"113","pa":"R$ 739,98","a":"HS","d":"R"},{"i":"9349","c":"Veículo","cr":"R$ 70.035,40","e":"R$ 34.317,00","p":"107","pa":"R$ 758,51","a":"HS","d":"D"},{"i":"9376","c":"Veículo","cr":"R$ 70.035,40","e":"R$ 34.317,00","p":"116","pa":"R$ 733,30","a":"HS","d":"R"},{"i":"9223","c":"Imóvel","cr":"R$ 69.243,84","e":"R$ 33.435,00","p":"140","pa":"R$ 566,67","a":"HS","d":"D"},{"i":"9335","c":"Imóvel","cr":"R$ 69.169,17","e":"R$ 33.893,00","p":"141","pa":"R$ 583,58","a":"HS","d":"D"},{"i":"9067","c":"Imóvel","cr":"R$ 68.838,31","e":"R$ 33.550,00","p":"128","pa":"R$ 579,78","a":"HS","d":"R"},{"i":"9113","c":"Imóvel","cr":"R$ 66.926,05","e":"R$ 32.330,00","p":"140","pa":"R$ 545,64","a":"HS","d":"R"},{"i":"7017","c":"Veículo","cr":"R$ 66.903,40","e":"R$ 34.200,00","p":"67","pa":"R$ 1.137,09","a":"HS","d":"R"},{"i":"9026","c":"Imóvel","cr":"R$ 66.839,05","e":"R$ 32.270,00","p":"140","pa":"R$ 539,21","a":"HS","d":"R"},{"i":"9220","c":"Imóvel","cr":"R$ 66.802,27","e":"R$ 32.270,00","p":"135","pa":"R$ 568,93","a":"HS","d":"D"},{"i":"9263","c":"Imóvel","cr":"R$ 66.515,82","e":"R$ 32.160,00","p":"130","pa":"R$ 573,34","a":"HS","d":"D"},{"i":"9289","c":"Imóvel","cr":"R$ 66.162,51","e":"R$ 32.264,00","p":"134","pa":"R$ 549,26","a":"HS","d":"D"},{"i":"8065","c":"Imóvel","cr":"R$ 64.684,94","e":"R$ 31.200,00","p":"152","pa":"R$ 523,26","a":"HS","d":"R"},{"i":"9247","c":"Imóvel","cr":"R$ 64.601,05","e":"R$ 31.230,00","p":"146","pa":"R$ 513,28","a":"HS","d":"D"},{"i":"9230","c":"Imóvel","cr":"R$ 64.589,84","e":"R$ 31.180,00","p":"147","pa":"R$ 509,75","a":"HS","d":"D"},{"i":"7084","c":"Veículo","cr":"R$ 64.189,99","e":"R$ 31.400,00","p":"91","pa":"R$ 810,17","a":"HS","d":"R"},{"i":"9168","c":"Imóvel","cr":"R$ 63.889,13","e":"R$ 30.875,00","p":"145","pa":"R$ 501,83","a":"HS","d":"R"},{"i":"9213","c":"Imóvel","cr":"R$ 63.680,15","e":"R$ 30.900,00","p":"140","pa":"R$ 537,72","a":"HS","d":"D"},{"i":"9060","c":"Imóvel","cr":"R$ 63.624,46","e":"R$ 31.180,00","p":"151","pa":"R$ 511,74","a":"HS","d":"R"},{"i":"9287","c":"Imóvel","cr":"R$ 63.306,42","e":"R$ 30.870,00","p":"143","pa":"R$ 518,02","a":"HS","d":"D"},{"i":"9350","c":"Veículo","cr":"R$ 62.569,99","e":"R$ 30.659,29","p":"70","pa":"R$ 968,20","a":"HS","d":"D"},{"i":"9014","c":"Imóvel","cr":"R$ 62.026,27","e":"R$ 30.500,00","p":"138","pa":"R$ 553,58","a":"HS","d":"R"},{"i":"8062","c":"Imóvel","cr":"R$ 61.029,77","e":"R$ 29.450,00","p":"154","pa":"R$ 537,83","a":"HS","d":"R"},{"i":"9115","c":"Veículo","cr":"R$ 60.957,47","e":"R$ 29.740,00","p":"80","pa":"R$ 823,15","a":"HS","d":"R"},{"i":"9327","c":"Imóvel","cr":"R$ 60.748,10","e":"R$ 29.767,00","p":"144","pa":"R$ 508,72","a":"HS","d":"D"},{"i":"9135","c":"Veículo","cr":"R$ 60.028,09","e":"R$ 28.890,00","p":"56","pa":"R$ 1.137,86","a":"HS","d":"R"},{"i":"9341","c":"Veículo","cr":"R$ 59.625,65","e":"R$ 29.216,00","p":"47","pa":"R$ 1.081,63","a":"HS","d":"D"},{"i":"9279","c":"Veículo","cr":"R$ 58.545,53","e":"R$ 28.688,00","p":"49","pa":"R$ 1.042,77","a":"HS","d":"R"},{"i":"9117","c":"Veículo","cr":"R$ 57.841,21","e":"R$ 27.835,00","p":"94","pa":"R$ 720,60","a":"HS","d":"R"},{"i":"9280","c":"Veículo","cr":"R$ 56.981,61","e":"R$ 27.832,00","p":"94","pa":"R$ 725,46","a":"HS","d":"R"},{"i":"9068","c":"Veículo","cr":"R$ 55.015,82","e":"R$ 26.960,00","p":"64","pa":"R$ 829,46","a":"HS","d":"R"},{"i":"9358","c":"Veículo","cr":"R$ 54.748,74","e":"R$ 26.826,00","p":"70","pa":"R$ 848,67","a":"HS","d":"D"},{"i":"9198","c":"Veículo","cr":"R$ 54.207,67","e":"R$ 26.562,00","p":"66","pa":"R$ 791,71","a":"HS","d":"R"},{"i":"9069","c":"Veículo","cr":"R$ 54.131,42","e":"R$ 26.530,00","p":"64","pa":"R$ 815,64","a":"HS","d":"R"},{"i":"9357","c":"Veículo","cr":"R$ 53.530,57","e":"R$ 26.229,00","p":"76","pa":"R$ 640,23","a":"HS","d":"D"},{"i":"9215","c":"Veículo","cr":"R$ 53.481,48","e":"R$ 26.105,00","p":"74","pa":"R$ 761,17","a":"HS","d":"R"},{"i":"9157","c":"Veículo","cr":"R$ 53.424,70","e":"R$ 26.180,00","p":"61","pa":"R$ 824,96","a":"HS","d":"R"},{"i":"9019","c":"Veículo","cr":"R$ 53.160,33","e":"R$ 25.960,00","p":"77","pa":"R$ 724,34","a":"HS","d":"R"},{"i":"9209","c":"Veículo","cr":"R$ 53.016,40","e":"R$ 25.980,00","p":"74","pa":"R$ 754,70","a":"HS","d":"R"},{"i":"9072","c":"Veículo","cr":"R$ 52.970,32","e":"R$ 26.000,00","p":"76","pa":"R$ 728,27","a":"HS","d":"R"},{"i":"9128","c":"Veículo","cr":"R$ 52.970,32","e":"R$ 25.960,00","p":"75","pa":"R$ 732,30","a":"HS","d":"R"},{"i":"8095","c":"Veículo","cr":"R$ 52.802,69","e":"R$ 25.600,00","p":"82","pa":"R$ 725,07","a":"HS","d":"R"},{"i":"9202","c":"Veículo","cr":"R$ 52.752,87","e":"R$ 25.602,00","p":"59","pa":"R$ 966,10","a":"HS","d":"R"},{"i":"9070","c":"Veículo","cr":"R$ 52.692,08","e":"R$ 24.440,00","p":"57","pa":"R$ 1.046,01","a":"HS","d":"R"},{"i":"9265","c":"Veículo","cr":"R$ 51.959,02","e":"R$ 25.460,00","p":"53","pa":"R$ 999,95","a":"HS","d":"R"},{"i":"9177","c":"Veículo","cr":"R$ 51.654,90","e":"R$ 25.530,00","p":"56","pa":"R$ 977,93","a":"HS","d":"R"},{"i":"4085","c":"Veículo","cr":"R$ 51.541,36","e":"R$ 24.000,00","p":"40","pa":"R$ 1.349,09","a":"HS","d":"R"},{"i":"9140","c":"Veículo","cr":"R$ 50.833,08","e":"R$ 24.460,00","p":"41","pa":"R$ 1.447,67","a":"HS","d":"R"},{"i":"9180","c":"Veículo","cr":"R$ 50.796,52","e":"R$ 24.750,00","p":"90","pa":"R$ 658,07","a":"HS","d":"R"},{"i":"9304","c":"Veículo","cr":"R$ 50.000,00","e":"R$ 24.500,00","p":"98","pa":"R$ 585,90","a":"HS","d":"R"},{"i":"9361","c":"Veículo","cr":"R$ 50.000,00","e":"R$ 24.500,00","p":"32","pa":"R$ 1.520,83","a":"HS","d":"D"},{"i":"9256","c":"Veículo","cr":"R$ 49.149,49","e":"R$ 24.085,00","p":"41","pa":"R$ 986,17","a":"HS","d":"R"},{"i":"7092","c":"Veículo","cr":"R$ 49.126,63","e":"R$ 24.400,00","p":"45","pa":"R$ 1.093,14","a":"HS","d":"R"},{"i":"9264","c":"Veículo","cr":"R$ 49.084,59","e":"R$ 24.052,00","p":"54","pa":"R$ 789,05","a":"HS","d":"R"},{"i":"9374","c":"Veículo","cr":"R$ 49.084,59","e":"R$ 24.051,00","p":"52","pa":"R$ 808,40","a":"HS","d":"D"},{"i":"9096","c":"Veículo","cr":"R$ 49.008,33","e":"R$ 24.740,00","p":"38","pa":"R$ 1.366,49","a":"HS","d":"R"},{"i":"9098","c":"Veículo","cr":"R$ 49.008,33","e":"R$ 24.740,00","p":"38","pa":"R$ 1.366,49","a":"HS","d":"R"},{"i":"9099","c":"Veículo","cr":"R$ 49.008,33","e":"R$ 24.740,00","p":"38","pa":"R$ 1.366,49","a":"HS","d":"R"},{"i":"9040","c":"Veículo","cr":"R$ 48.934,14","e":"R$ 23.900,00","p":"60","pa":"R$ 809,10","a":"HS","d":"R"},{"i":"4084","c":"Veículo","cr":"R$ 48.653,31","e":"R$ 23.000,00","p":"38","pa":"R$ 1.371,92","a":"HS","d":"R"},{"i":"9269","c":"Veículo","cr":"R$ 48.369,59","e":"R$ 23.702,00","p":"61","pa":"R$ 806,52","a":"HS","d":"R"},{"i":"9095","c":"Veículo","cr":"R$ 48.273,76","e":"R$ 24.370,00","p":"38","pa":"R$ 1.346,84","a":"HS","d":"R"},{"i":"9097","c":"Veículo","cr":"R$ 48.273,76","e":"R$ 24.370,00","p":"38","pa":"R$ 1.346,84","a":"HS","d":"R"},{"i":"9039","c":"Veículo","cr":"R$ 47.778,25","e":"R$ 23.410,00","p":"42","pa":"R$ 986,43","a":"HS","d":"R"},{"i":"9321","c":"Veículo","cr":"R$ 47.349,20","e":"R$ 23.201,00","p":"68","pa":"R$ 687,51","a":"HS","d":"R"},{"i":"9131","c":"Veículo","cr":"R$ 46.939,84","e":"R$ 23.000,00","p":"48","pa":"R$ 838,12","a":"HS","d":"R"},{"i":"9089","c":"Veículo","cr":"R$ 46.767,19","e":"R$ 22.800,00","p":"73","pa":"R$ 734,33","a":"HS","d":"R"},{"i":"9212","c":"Veículo","cr":"R$ 46.762,86","e":"R$ 22.750,00","p":"55","pa":"R$ 901,83","a":"HS","d":"R"},{"i":"9142","c":"Veículo","cr":"R$ 46.640,27","e":"R$ 22.860,00","p":"40","pa":"R$ 938,36","a":"HS","d":"R"},{"i":"9278","c":"Veículo","cr":"R$ 46.463,71","e":"R$ 22.770,00","p":"64","pa":"R$ 687,95","a":"HS","d":"R"},{"i":"8009","c":"Veículo","cr":"R$ 46.261,94","e":"R$ 22.700,00","p":"38","pa":"R$ 1.280,87","a":"HS","d":"R"},{"i":"7031","c":"Veículo","cr":"R$ 45.828,94","e":"R$ 30.200,00","p":"12","pa":"R$ 3.530,39","a":"HS","d":"R"},{"i":"9137","c":"Veículo","cr":"R$ 45.017,19","e":"R$ 22.060,00","p":"60","pa":"R$ 772,15","a":"HS","d":"R"},{"i":"8031","c":"Veículo","cr":"R$ 44.811,59","e":"R$ 21.000,00","p":"53","pa":"R$ 864,51","a":"HS","d":"R"},{"i":"7025","c":"Veículo","cr":"R$ 43.676,77","e":"R$ 21.000,00","p":"36","pa":"R$ 1.261,79","a":"HS","d":"R"},{"i":"5088","c":"Veículo","cr":"R$ 43.382,44","e":"R$ 25.900,00","p":"37","pa":"R$ 1.226,03","a":"HS","d":"R"},{"i":"9081","c":"Veículo","cr":"R$ 43.274,79","e":"R$ 21.210,00","p":"36","pa":"R$ 881,35","a":"HS","d":"R"},{"i":"9102","c":"Veículo","cr":"R$ 43.215,17","e":"R$ 22.260,00","p":"36","pa":"R$ 1.297,94","a":"HS","d":"R"},{"i":"9143","c":"Veículo","cr":"R$ 43.199,80","e":"R$ 21.070,00","p":"95","pa":"R$ 538,48","a":"HS","d":"R"},{"i":"5050","c":"Veículo","cr":"R$ 43.105,35","e":"R$ 21.600,00","p":"38","pa":"R$ 1.192,78","a":"HS","d":"R"},{"i":"6038","c":"Veículo","cr":"R$ 43.077,35","e":"R$ 21.500,00","p":"36","pa":"R$ 1.243,54","a":"HS","d":"R"},{"i":"9162","c":"Veículo","cr":"R$ 43.054,12","e":"R$ 20.950,00","p":"23","pa":"R$ 1.409,48","a":"HS","d":"R"},{"i":"9174","c":"Veículo","cr":"R$ 43.011,09","e":"R$ 20.874,00","p":"90","pa":"R$ 576,13","a":"HS","d":"R"},{"i":"9041","c":"Veículo","cr":"R$ 42.880,63","e":"R$ 20.980,00","p":"70","pa":"R$ 618,18","a":"HS","d":"R"},{"i":"9037","c":"Veículo","cr":"R$ 42.745,47","e":"R$ 21.190,00","p":"54","pa":"R$ 660,87","a":"HS","d":"R"},{"i":"9176","c":"Veículo","cr":"R$ 42.537,77","e":"R$ 20.850,00","p":"36","pa":"R$ 849,42","a":"HS","d":"R"},{"i":"8083","c":"Veículo","cr":"R$ 41.964,55","e":"R$ 19.500,00","p":"57","pa":"R$ 843,13","a":"HS","d":"R"},{"i":"9091","c":"Veículo","cr":"R$ 41.749,92","e":"R$ 20.780,00","p":"46","pa":"R$ 891,68","a":"HS","d":"R"},{"i":"9186","c":"Veículo","cr":"R$ 41.582,49","e":"R$ 20.180,00","p":"33","pa":"R$ 1.183,06","a":"HS","d":"R"},{"i":"9127","c":"Veículo","cr":"R$ 41.476,73","e":"R$ 20.930,00","p":"29","pa":"R$ 1.412,77","a":"HS","d":"R"},{"i":"9148","c":"Veículo","cr":"R$ 41.446,88","e":"R$ 20.310,00","p":"51","pa":"R$ 685,87","a":"HS","d":"R"},{"i":"9119","c":"Veículo","cr":"R$ 41.344,74","e":"R$ 20.260,00","p":"74","pa":"R$ 574,81","a":"HS","d":"R"},{"i":"9132","c":"Veículo","cr":"R$ 41.073,02","e":"R$ 20.130,00","p":"79","pa":"R$ 560,61","a":"HS","d":"R"},{"i":"9306","c":"Veículo","cr":"R$ 40.924,71","e":"R$ 20.054,00","p":"56","pa":"R$ 646,13","a":"HS","d":"R"},{"i":"9136","c":"Veículo","cr":"R$ 40.246,29","e":"R$ 19.720,00","p":"57","pa":"R$ 654,44","a":"HS","d":"R"},{"i":"9352","c":"Veículo","cr":"R$ 40.215,02","e":"R$ 19.705,00","p":"59","pa":"R$ 634,76","a":"HS","d":"D"},{"i":"9324","c":"Veículo","cr":"R$ 40.026,28","e":"R$ 20.078,00","p":"41","pa":"R$ 1.001,14","a":"HS","d":"R"},{"i":"6029","c":"Veículo","cr":"R$ 39.909,50","e":"R$ 19.600,00","p":"73","pa":"R$ 548,95","a":"HS","d":"R"},{"i":"9020","c":"Veículo","cr":"R$ 39.699,14","e":"R$ 19.620,00","p":"94","pa":"R$ 476,21","a":"HS","d":"R"},{"i":"9205","c":"Veículo","cr":"R$ 39.286,27","e":"R$ 20.930,00","p":"23","pa":"R$ 1.628,03","a":"HS","d":"R"},{"i":"9368","c":"Veículo","cr":"R$ 39.203,45","e":"R$ 19.209,00","p":"69","pa":"R$ 561,71","a":"HS","d":"D"},{"i":"8084","c":"Veículo","cr":"R$ 38.978,77","e":"R$ 20.790,00","p":"33","pa":"R$ 1.233,31","a":"HS","d":"R"},{"i":"9338","c":"Veículo","cr":"R$ 38.719,76","e":"R$ 18.972,00","p":"62","pa":"R$ 595,23","a":"HS","d":"D"},{"i":"9064","c":"Veículo","cr":"R$ 38.261,04","e":"R$ 18.590,00","p":"82","pa":"R$ 525,18","a":"HS","d":"R"},{"i":"9036","c":"Veículo","cr":"R$ 38.243,12","e":"R$ 18.740,00","p":"59","pa":"R$ 717,17","a":"HS","d":"R"},{"i":"3566","c":"Veículo","cr":"R$ 38.072,84","e":"R$ 23.900,00","p":"31","pa":"R$ 1.386,08","a":"HS","d":"R"},{"i":"8073","c":"Veículo","cr":"R$ 37.986,24","e":"R$ 18.450,00","p":"76","pa":"R$ 520,30","a":"HS","d":"R"},{"i":"9347","c":"Veículo","cr":"R$ 37.949,16","e":"R$ 18.595,00","p":"74","pa":"R$ 527,60","a":"HS","d":"D"},{"i":"9175","c":"Veículo","cr":"R$ 37.949,16","e":"R$ 18.595,00","p":"78","pa":"R$ 516,19","a":"HS","d":"R"},{"i":"9275","c":"Veículo","cr":"R$ 37.707,57","e":"R$ 18.420,00","p":"81","pa":"R$ 506,65","a":"HS","d":"R"},{"i":"9118","c":"Veículo","cr":"R$ 37.120,39","e":"R$ 18.190,00","p":"32","pa":"R$ 996,22","a":"HS","d":"R"},{"i":"9052","c":"Veículo","cr":"R$ 37.051,72","e":"R$ 18.160,00","p":"38","pa":"R$ 702,08","a":"HS","d":"R"},{"i":"7099","c":"Veículo","cr":"R$ 36.647,49","e":"R$ 18.700,00","p":"74","pa":"R$ 550,80","a":"HS","d":"R"},{"i":"9038","c":"Veículo","cr":"R$ 36.098,76","e":"R$ 18.030,00","p":"87","pa":"R$ 465,08","a":"HS","d":"R"},{"i":"7086","c":"Veículo","cr":"R$ 36.057,42","e":"R$ 17.700,00","p":"82","pa":"R$ 493,94","a":"HS","d":"R"},{"i":"8076","c":"Veículo","cr":"R$ 35.969,34","e":"R$ 17.400,00","p":"94","pa":"R$ 456,59","a":"HS","d":"R"},{"i":"9048","c":"Veículo","cr":"R$ 35.946,66","e":"R$ 17.430,00","p":"94","pa":"R$ 447,07","a":"HS","d":"R"},{"i":"9028","c":"Veículo","cr":"R$ 35.792,98","e":"R$ 17.400,00","p":"91","pa":"R$ 452,15","a":"HS","d":"R"},{"i":"7083","c":"Veículo","cr":"R$ 35.749,63","e":"R$ 17.400,00","p":"93","pa":"R$ 450,10","a":"HS","d":"R"},{"i":"9270","c":"Veículo","cr":"R$ 35.718,58","e":"R$ 17.396,00","p":"94","pa":"R$ 453,41","a":"HS","d":"R"},{"i":"9065","c":"Veículo","cr":"R$ 35.682,34","e":"R$ 17.400,00","p":"92","pa":"R$ 453,91","a":"HS","d":"R"},{"i":"9345","c":"Veículo","cr":"R$ 35.500,00","e":"R$ 17.395,00","p":"95","pa":"R$ 448,73","a":"HS","d":"D"},{"i":"8014","c":"Veículo","cr":"R$ 34.975,76","e":"R$ 17.000,00","p":"50","pa":"R$ 820,57","a":"HS","d":"R"},{"i":"9348","c":"Veículo","cr":"R$ 34.920,55","e":"R$ 17.111,00","p":"66","pa":"R$ 540,27","a":"HS","d":"D"},{"i":"9056","c":"Veículo","cr":"R$ 33.636,04","e":"R$ 16.490,00","p":"35","pa":"R$ 862,46","a":"HS","d":"R"},{"i":"9080","c":"Veículo","cr":"R$ 33.605,20","e":"R$ 16.470,00","p":"80","pa":"R$ 464,69","a":"HS","d":"R"},{"i":"9255","c":"Veículo","cr":"R$ 32.854,26","e":"R$ 16.100,00","p":"56","pa":"R$ 518,91","a":"HS","d":"R"},{"i":"9226","c":"Veículo","cr":"R$ 32.484,95","e":"R$ 15.915,00","p":"89","pa":"R$ 419,35","a":"HS","d":"R"},{"i":"9147","c":"Veículo","cr":"R$ 32.414,54","e":"R$ 15.810,00","p":"95","pa":"R$ 403,85","a":"HS","d":"R"},{"i":"9201","c":"Veículo","cr":"R$ 32.358,75","e":"R$ 15.790,00","p":"59","pa":"R$ 569,73","a":"HS","d":"R"},{"i":"9199","c":"Veículo","cr":"R$ 32.173,40","e":"R$ 15.695,00","p":"53","pa":"R$ 602,27","a":"HS","d":"R"},{"i":"9086","c":"Veículo","cr":"R$ 32.168,81","e":"R$ 15.690,00","p":"49","pa":"R$ 547,95","a":"HS","d":"R"},{"i":"9103","c":"Veículo","cr":"R$ 32.041,45","e":"R$ 15.700,00","p":"95","pa":"R$ 403,85","a":"HS","d":"R"},{"i":"9375","c":"Veículo","cr":"R$ 31.950,00","e":"R$ 15.655,00","p":"95","pa":"R$ 406,61","a":"HS","d":"R"},{"i":"9193","c":"Veículo","cr":"R$ 31.779,75","e":"R$ 15.580,00","p":"91","pa":"R$ 400,49","a":"HS","d":"R"},{"i":"4090","c":"Veículo","cr":"R$ 31.221,07","e":"R$ 16.750,00","p":"23","pa":"R$ 1.348,39","a":"HS","d":"R"},{"i":"9120","c":"Veículo","cr":"R$ 31.217,65","e":"R$ 15.300,00","p":"62","pa":"R$ 469,45","a":"HS","d":"R"},{"i":"9210","c":"Veículo","cr":"R$ 30.932,62","e":"R$ 15.160,00","p":"47","pa":"R$ 661,56","a":"HS","d":"R"},{"i":"9184","c":"Veículo","cr":"R$ 30.879,72","e":"R$ 15.132,00","p":"43","pa":"R$ 569,35","a":"HS","d":"R"},{"i":"9125","c":"Veículo","cr":"R$ 30.764,63","e":"R$ 14.880,00","p":"76","pa":"R$ 459,23","a":"HS","d":"R"},{"i":"9124","c":"Veículo","cr":"R$ 30.585,41","e":"R$ 15.150,00","p":"55","pa":"R$ 633,87","a":"HS","d":"R"},{"i":"9078","c":"Veículo","cr":"R$ 29.877,28","e":"R$ 14.640,00","p":"77","pa":"R$ 414,59","a":"HS","d":"R"},{"i":"9076","c":"Veículo","cr":"R$ 29.871,29","e":"R$ 14.640,00","p":"80","pa":"R$ 402,63","a":"HS","d":"R"},{"i":"9071","c":"Veículo","cr":"R$ 29.844,21","e":"R$ 13.970,00","p":"57","pa":"R$ 591,75","a":"HS","d":"R"},{"i":"9344","c":"Veículo","cr":"R$ 29.690,87","e":"R$ 14.549,00","p":"51","pa":"R$ 613,38","a":"HS","d":"D"},{"i":"9182","c":"Veículo","cr":"R$ 29.686,32","e":"R$ 14.408,00","p":"73","pa":"R$ 446,89","a":"HS","d":"R"},{"i":"9154","c":"Veículo","cr":"R$ 29.430,88","e":"R$ 14.405,00","p":"49","pa":"R$ 646,67","a":"HS","d":"R"},{"i":"9161","c":"Veículo","cr":"R$ 28.541,80","e":"R$ 14.072,00","p":"56","pa":"R$ 537,96","a":"HS","d":"R"},{"i":"9141","c":"Veículo","cr":"R$ 28.132,25","e":"R$ 14.790,00","p":"19","pa":"R$ 1.451,89","a":"HS","d":"R"},{"i":"9314","c":"Veículo","cr":"R$ 27.738,00","e":"R$ 13.592,00","p":"52","pa":"R$ 599,18","a":"HS","d":"R"},{"i":"9351","c":"Veículo","cr":"R$ 27.477,21","e":"R$ 13.464,00","p":"54","pa":"R$ 520,70","a":"HS","d":"D"},{"i":"9197","c":"Veículo","cr":"R$ 27.119,06","e":"R$ 13.290,00","p":"54","pa":"R$ 454,85","a":"HS","d":"R"},{"i":"9066","c":"Veículo","cr":"R$ 26.953,22","e":"R$ 13.140,00","p":"72","pa":"R$ 383,30","a":"HS","d":"R"},{"i":"9023","c":"Veículo","cr":"R$ 26.911,68","e":"R$ 13.140,00","p":"73","pa":"R$ 375,09","a":"HS","d":"R"},{"i":"9083","c":"Veículo","cr":"R$ 26.897,05","e":"R$ 13.120,00","p":"69","pa":"R$ 448,87","a":"HS","d":"R"},{"i":"9277","c":"Veículo","cr":"R$ 26.879,84","e":"R$ 13.172,00","p":"73","pa":"R$ 412,14","a":"HS","d":"R"},{"i":"9111","c":"Veículo","cr":"R$ 26.759,61","e":"R$ 13.115,00","p":"67","pa":"R$ 388,43","a":"HS","d":"R"},{"i":"9073","c":"Veículo","cr":"R$ 26.757,98","e":"R$ 13.300,00","p":"59","pa":"R$ 498,42","a":"HS","d":"R"},{"i":"9281","c":"Veículo","cr":"R$ 26.693,53","e":"R$ 13.080,00","p":"71","pa":"R$ 377,23","a":"HS","d":"R"},{"i":"9231","c":"Veículo","cr":"R$ 26.670,63","e":"R$ 13.290,00","p":"54","pa":"R$ 563,90","a":"HS","d":"R"},{"i":"9084","c":"Veículo","cr":"R$ 26.613,60","e":"R$ 12.910,00","p":"67","pa":"R$ 449,06","a":"HS","d":"R"},{"i":"9254","c":"Veículo","cr":"R$ 25.784,69","e":"R$ 12.635,00","p":"79","pa":"R$ 364,71","a":"HS","d":"R"},{"i":"9342","c":"Veículo","cr":"R$ 25.784,69","e":"R$ 12.634,00","p":"77","pa":"R$ 352,60","a":"HS","d":"D"},{"i":"9188","c":"Veículo","cr":"R$ 25.784,69","e":"R$ 12.640,00","p":"81","pa":"R$ 345,42","a":"HS","d":"R"},{"i":"9050","c":"Veículo","cr":"R$ 25.290,67","e":"R$ 12.450,00","p":"73","pa":"R$ 363,00","a":"HS","d":"R"},{"i":"9272","c":"Veículo","cr":"R$ 25.148,55","e":"R$ 12.324,00","p":"81","pa":"R$ 366,03","a":"HS","d":"R"},{"i":"9355","c":"Veículo","cr":"R$ 25.148,55","e":"R$ 12.322,00","p":"79","pa":"R$ 382,27","a":"HS","d":"D"},{"i":"9079","c":"Veículo","cr":"R$ 25.057,05","e":"R$ 12.570,00","p":"36","pa":"R$ 738,25","a":"HS","d":"R"},{"i":"8003","c":"Veículo","cr":"R$ 24.690,27","e":"R$ 13.000,00","p":"11","pa":"R$ 2.236,65","a":"HS","d":"R"},{"i":"9271","c":"Veículo","cr":"R$ 24.534,40","e":"R$ 12.022,00","p":"88","pa":"R$ 318,20","a":"HS","d":"R"},{"i":"9075","c":"Veículo","cr":"R$ 24.534,40","e":"R$ 12.025,00","p":"92","pa":"R$ 312,94","a":"HS","d":"R"},{"i":"8059","c":"Veículo","cr":"R$ 24.417,45","e":"R$ 11.700,00","p":"55","pa":"R$ 525,33","a":"HS","d":"R"},{"i":"9323","c":"Veículo","cr":"R$ 24.092,18","e":"R$ 11.806,00","p":"53","pa":"R$ 505,77","a":"HS","d":"R"},{"i":"9122","c":"Veículo","cr":"R$ 23.566,80","e":"R$ 11.690,00","p":"53","pa":"R$ 516,35","a":"HS","d":"R"},{"i":"9144","c":"Veículo","cr":"R$ 23.261,38","e":"R$ 11.660,00","p":"55","pa":"R$ 481,26","a":"HS","d":"R"},{"i":"9153","c":"Veículo","cr":"R$ 21.890,37","e":"R$ 11.015,00","p":"55","pa":"R$ 469,80","a":"HS","d":"R"},{"i":"5058","c":"Veículo","cr":"R$ 6.866,28","e":"R$ 4.000,00","p":"8","pa":"R$ 1.231,10","a":"HS","d":"R"}];
 
-  Papa.parse("cartas_contempladas.csv", {
-      download: true,
-      header: true,
-      delimiter: ";",
-      complete: function(results) {
-          dadosGlobais = results.data.filter(carta => carta.ID); 
-          renderizarTabela(dadosGlobais);
-      }
-  });
+// =====================================================================
+// ESTADO
+// =====================================================================
+var WA      = '5517996482578';
+var POR_PAG = 25;
+var filtrados   = CARTAS.slice();
+var selecionadas = {};   // { id: cartaObj } â€” persiste entre pÃ¡ginas
+var pagAtual = 0;
 
-  function renderizarTabela(dados) {
-      const corpo = document.getElementById("tabela-corpo");
-      if(!corpo) return;
-      corpo.innerHTML = "";
-      selecionadas = []; 
-      atualizarSoma();
+// =====================================================================
+// LINK WHATSAPP INDIVIDUAL
+// =====================================================================
+function buildLink(carta) {
+  var msg = 'OlÃ¡ Martins! Vi no site a carta de ' + carta.c + ' (ID: ' + carta.i + ') com CrÃ©dito de ' + carta.cr + ' e Entrada de ' + carta.e + '. Ainda estÃ¡ disponÃ­vel?';
+  return 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
+}
 
-      dados.forEach(carta => {
-          const isReservada = carta.Disponibilidade && carta.Disponibilidade.toLowerCase().includes("reservada");
-          const badgeClass = isReservada ? "status-reser" : "status-disp";
-          const checkboxValue = `<input type="checkbox" onchange="selecionarCarta(this, '${carta.ID}', '${carta.Credito}', '${carta.Entrada}', '${carta.Parcela}', '${carta.Categoria}', '${carta.Disponibilidade}')">`;
+// =====================================================================
+// RENDER TABELA (apenas a pÃ¡gina atual)
+// =====================================================================
+function renderTabela() {
+  var corpo  = document.getElementById('tabela-corpo');
+  var inicio = pagAtual * POR_PAG;
+  var pRows  = filtrados.slice(inicio, inicio + POR_PAG);
+  var html   = '';
 
-          const tr = `
-              <tr>
-                  <td>${checkboxValue}</td>
-                  <td><strong>${carta.ID}</strong></td>
-                  <td>${carta.Categoria}</td>
-                  <td class="destaque-credito">${carta.Credito}</td>
-                  <td><strong>${carta.Entrada}</strong></td>
-                  <td>${carta.Prazo || '-'}</td>
-                  <td>${carta.Parcela || '-'}</td>
-                  <td>${carta.Administradora || '-'}</td>
-                  <td><span class="${badgeClass}">${carta.Disponibilidade}</span></td>
-                  <td><button class="btn-negociar-linha" onclick="negociarUnica('${carta.ID}', '${carta.Categoria}', '${carta.Credito}', '${carta.Entrada}')">Negociar</button></td>
-              </tr>
-          `;
-          corpo.innerHTML += tr;
-      });
+  for (var i = 0; i < pRows.length; i++) {
+    var c       = pRows[i];
+    var isR     = c.d === 'R';
+    var disp    = isR ? 'Reservada' : 'DisponÃ­vel';
+    var badge   = isR ? 'status-reser' : 'status-disp';
+    var checked = selecionadas[c.i] ? ' checked' : '';
+    var waLink  = buildLink(c);
+
+    html +=
+      '<tr>' +
+      '<td><input type="checkbox"' + checked + ' onchange="selecionar(this,\'' + c.i + '\')" aria-label="Selecionar carta ' + c.i + '"></td>' +
+      '<td><strong>' + c.i + '</strong></td>' +
+      '<td>' + c.c + '</td>' +
+      '<td class="destaque-credito">' + c.cr + '</td>' +
+      '<td><strong>' + c.e + '</strong></td>' +
+      '<td>' + c.p + '</td>' +
+      '<td>' + c.pa + '</td>' +
+      '<td>' + c.a + '</td>' +
+      '<td><span class="' + badge + '">' + disp + '</span></td>' +
+      '<td><a href="' + waLink + '" target="_blank" rel="noopener" class="btn-negociar-linha">Negociar</a></td>' +
+      '</tr>';
   }
 
-  window.filtrarPlanilha = function(categoria, elemento) {
-      const botoes = document.querySelectorAll('.filter-planilha');
-      botoes.forEach(btn => btn.classList.remove('active'));
-      elemento.classList.add('active');
+  corpo.innerHTML = html;
+  renderPaginacao();
+}
 
-      if (categoria === 'Todas') {
-          renderizarTabela(dadosGlobais);
-      } else {
-          const filtrados = dadosGlobais.filter(carta => carta.Categoria && carta.Categoria.toLowerCase() === categoria.toLowerCase());
-          renderizarTabela(filtrados);
-      }
+// =====================================================================
+// PAGINAÃ‡ÃƒO
+// =====================================================================
+function renderPaginacao() {
+  var total = Math.ceil(filtrados.length / POR_PAG);
+  var el    = document.getElementById('paginacao');
+  if (total <= 1) { el.innerHTML = ''; return; }
+
+  var h = '<button class="pag-btn" onclick="irPag(' + (pagAtual - 1) + ')"' + (pagAtual === 0 ? ' disabled' : '') + '>&#8592; Anterior</button>';
+
+  var lastDots = false;
+  for (var i = 0; i < total; i++) {
+    var dist = Math.abs(i - pagAtual);
+    if (i === 0 || i === total - 1 || dist <= 1) {
+      lastDots = false;
+      h += '<button class="pag-btn' + (i === pagAtual ? ' ativo' : '') + '" onclick="irPag(' + i + ')">' + (i + 1) + '</button>';
+    } else if (!lastDots && dist <= 3) {
+      h += '<span class="pag-info">â€¦</span>';
+      lastDots = true;
+    }
   }
 
-  function converterParaNumero(valorString) {
-      if (!valorString || valorString === "-") return 0;
-      let numeroLimpo = valorString.replace("R$", "").replace(/\./g, "").replace(",", ".").trim();
-      return parseFloat(numeroLimpo) || 0;
+  var inicio = pagAtual * POR_PAG + 1;
+  var fim    = Math.min((pagAtual + 1) * POR_PAG, filtrados.length);
+  h += '<button class="pag-btn" onclick="irPag(' + (pagAtual + 1) + ')"' + (pagAtual >= total - 1 ? ' disabled' : '') + '>PrÃ³xima &#8594;</button>';
+  h += '<span class="pag-total">' + inicio + 'â€“' + fim + ' de ' + filtrados.length + '</span>';
+
+  el.innerHTML = h;
+}
+
+window.irPag = function(p) {
+  var total = Math.ceil(filtrados.length / POR_PAG);
+  if (p < 0 || p >= total) return;
+  pagAtual = p;
+  renderTabela();
+  document.querySelector('.container-tabela').scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+
+// =====================================================================
+// FILTRO POR CATEGORIA
+// =====================================================================
+window.filtrarPlanilha = function(categoria, el) {
+  var btns = document.querySelectorAll('.filter-planilha');
+  for (var i = 0; i < btns.length; i++) { btns[i].classList.remove('active'); }
+  el.classList.add('active');
+  filtrados = categoria === 'Todas' ? CARTAS.slice() : CARTAS.filter(function(c) { return c.c === categoria; });
+  pagAtual = 0;
+  selecionadas = {};
+  atualizarSoma();
+  renderTabela();
+};
+
+// =====================================================================
+// SELEÃ‡ÃƒO (persiste entre pÃ¡ginas com Map por ID)
+// =====================================================================
+window.selecionar = function(checkbox, id) {
+  var carta = null;
+  for (var i = 0; i < CARTAS.length; i++) { if (CARTAS[i].i === id) { carta = CARTAS[i]; break; } }
+  if (!carta) return;
+  if (checkbox.checked) { selecionadas[id] = carta; } else { delete selecionadas[id]; }
+  atualizarSoma();
+};
+
+function toNum(s) {
+  if (!s || s === '-') return 0;
+  return parseFloat(s.replace('R$','').replace(/\./g,'').replace(',','.').trim()) || 0;
+}
+
+function fmtBRL(v) {
+  return v.toLocaleString('pt-BR', { style:'currency', currency:'BRL' });
+}
+
+function atualizarSoma() {
+  var barra = document.getElementById('barra-soma');
+  var ids   = Object.keys(selecionadas);
+  if (ids.length === 0) { barra.style.display = 'none'; return; }
+  barra.style.display = 'flex';
+
+  var tCred = 0, tEnt = 0, tPar = 0;
+  for (var i = 0; i < ids.length; i++) {
+    var c = selecionadas[ids[i]];
+    tCred += toNum(c.cr); tEnt += toNum(c.e); tPar += toNum(c.pa);
   }
 
-  function formatarMoeda(valor) {
-      return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+  document.getElementById('soma-qtd').innerText     = ids.length;
+  document.getElementById('soma-credito').innerText = fmtBRL(tCred);
+  document.getElementById('soma-entrada').innerText = fmtBRL(tEnt);
+  document.getElementById('soma-parcela').innerText = fmtBRL(tPar);
+}
+
+// =====================================================================
+// NEGOCIAR PACOTE VIA WHATSAPP
+// =====================================================================
+window.enviarPacote = function() {
+  var ids = Object.keys(selecionadas);
+  if (!ids.length) return;
+
+  var tCred = 0, tEnt = 0, tPar = 0;
+  for (var i = 0; i < ids.length; i++) {
+    var c = selecionadas[ids[i]];
+    tCred += toNum(c.cr); tEnt += toNum(c.e); tPar += toNum(c.pa);
   }
 
-  window.selecionarCarta = function(checkbox, id, creditoStr, entradaStr, parcelaStr, categoria, status) {
-      if (checkbox.checked) {
-          selecionadas.push({ 
-              id, 
-              credito: converterParaNumero(creditoStr), 
-              entrada: converterParaNumero(entradaStr),
-              parcela: converterParaNumero(parcelaStr),
-              creditoStr, entradaStr, categoria, status 
-          });
-      } else {
-          selecionadas = selecionadas.filter(carta => carta.id !== id);
-      }
-      atualizarSoma();
+  var texto = '*OlÃ¡!* Tenho interesse neste pacote de cartas que selecionei no site:\n\n';
+  for (var j = 0; j < ids.length; j++) {
+    var carta = selecionadas[ids[j]];
+    var disp  = carta.d === 'R' ? 'Reservada' : 'DisponÃ­vel';
+    texto += 'ðŸ”¹ *ID:* ' + carta.i + ' (' + carta.c + ') - _' + disp + '_\n   CrÃ©dito: ' + carta.cr + '\n   Entrada: ' + carta.e + '\n\n';
   }
+  texto += 'ðŸ“Š *RESUMO DO PACOTE:*\nðŸ’° CrÃ©dito Total: ' + fmtBRL(tCred) + '\nðŸ’¸ Entrada Total: ' + fmtBRL(tEnt) + '\nðŸ—“ï¸ Parcelas: ' + fmtBRL(tPar) + '\n\nPodemos conversar?';
 
-  function atualizarSoma() {
-      const barra = document.getElementById("barra-soma");
-      if (selecionadas.length === 0) {
-          barra.style.display = "none";
-          return;
-      }
-      barra.style.display = "flex";
-      
-      const totalCredito = selecionadas.reduce((soma, carta) => soma + carta.credito, 0);
-      const totalEntrada = selecionadas.reduce((soma, carta) => soma + carta.entrada, 0);
-      const totalParcela = selecionadas.reduce((soma, carta) => soma + carta.parcela, 0);
+  window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(texto), '_blank');
+};
 
-      document.getElementById("soma-qtd").innerText = selecionadas.length;
-      document.getElementById("soma-credito").innerText = formatarMoeda(totalCredito);
-      document.getElementById("soma-entrada").innerText = formatarMoeda(totalEntrada);
-      document.getElementById("soma-parcela").innerText = formatarMoeda(totalParcela);
-  }
-
-  window.enviarPacoteWhatsApp = function() {
-      const totalCredito = formatarMoeda(selecionadas.reduce((soma, carta) => soma + carta.credito, 0));
-      const totalEntrada = formatarMoeda(selecionadas.reduce((soma, carta) => soma + carta.entrada, 0));
-      const totalParcela = formatarMoeda(selecionadas.reduce((soma, carta) => soma + carta.parcela, 0));
-
-      let texto = `*Olá!* Tenho interesse neste pacote de cartas que selecionei no site:\n\n`;
-      selecionadas.forEach(carta => {
-          texto += `🔹 *ID:* ${carta.id} (${carta.categoria}) - _${carta.status}_\n   Crédito: ${carta.creditoStr}\n   Entrada: ${carta.entradaStr}\n\n`;
-      });
-      texto += `📊 *RESUMO DO PACOTE:*\n💰 Crédito Total: ${totalCredito}\n💸 Entrada Total: ${totalEntrada}\n🗓️ Parcelas: ${totalParcela}\n\nPodemos conversar?`;
-      window.open(`https://wa.me/${SEU_WHATSAPP}?text=${encodeURIComponent(texto)}`, '_blank');
-  }
-
-  window.negociarUnica = function(id, categoria, credito, entrada) {
-      let texto = `*Olá!* Estava a olhar o estoque e tenho interesse na carta única abaixo:\n\n🔹 *ID:* ${id} (${categoria})\n💰 *Crédito:* ${credito}\n💸 *Entrada:* ${entrada}\n\nAinda está disponível para negócio?`;
-      window.open(`https://wa.me/${SEU_WHATSAPP}?text=${encodeURIComponent(texto)}`, '_blank');
-  }
+// =====================================================================
+// INICIALIZAÃ‡ÃƒO â€” sem espera, dados jÃ¡ disponÃ­veis
+// =====================================================================
+renderTabela();
 </script>
 </body>
 </html>
