@@ -5,6 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CHAVE Consórcios — Cartas Contempladas de Veículos e Imóveis de Alto Padrão</title>
 <meta name="description" content="Cartas de consórcio já contempladas para veículos e imóveis de alto padrão. Sem sorteio, sem fila. Simule agora.">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c191d'/%3E%3Ccircle cx='11' cy='11' r='6' stroke='%23c08b3e' stroke-width='2' fill='none'/%3E%3Cpath d='M15.5 15.5L25 25M25 25V20M25 25H20' stroke='%23c08b3e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+<!-- Open Graph — Preview no WhatsApp, Facebook e LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="CHAVE Consórcios">
+<meta property="og:title" content="CHAVE Consórcios — Cartas Contempladas de Veículos e Imóveis de Alto Padrão">
+<meta property="og:description" content="Cartas de consórcio já contempladas para veículos e imóveis de alto padrão. Sem sorteio, sem fila. Simule agora.">
+<meta property="og:url" content="https://abnael-martins.github.io/ChaveConsorcios/cartas.html">
+<meta property="og:image" content="https://abnael-martins.github.io/ChaveConsorcios/diversos-bens.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -264,7 +277,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <button class="close-menu" id="closeMenu" aria-label="Fechar menu">✕</button>
   <a href="#como-funciona">Como funciona</a>
-  <a href="cartas.html" target="_blank">Cartas contempladas</a>
+  <a href="cartas-contempladas.html">Cartas contempladas</a>
   <a href="#veiculos">Veículos</a>
   <a href="#imoveis">Imóveis</a>
   <a href="#faq">Dúvidas</a>
@@ -366,7 +379,8 @@
       <div class="ticket" data-cat="veiculo">
         <div class="ticket-main">
           <div class="ticket-media">
-            <video class="amb-video" muted loop playsinline poster="https://assets.mixkit.co/videos/74/74-thumb-360-0.jpg">
+            <!-- preload="none": o IntersectionObserver já gere o play/pause. Não é necessário pré-carregar. -->
+            <video class="amb-video" muted loop playsinline preload="none" poster="https://assets.mixkit.co/videos/74/74-thumb-360-0.jpg">
               <source src="https://assets.mixkit.co/videos/74/74-360.mp4" type="video/mp4">
             </video>
             <span class="badge">Alta procura</span>
@@ -391,7 +405,7 @@
       <div class="ticket" data-cat="veiculo">
         <div class="ticket-main">
           <div class="ticket-media">
-            <video class="amb-video" muted loop playsinline poster="https://assets.mixkit.co/videos/71/71-thumb-360-0.jpg">
+            <video class="amb-video" muted loop playsinline preload="none" poster="https://assets.mixkit.co/videos/71/71-thumb-360-0.jpg">
               <source src="https://assets.mixkit.co/videos/71/71-360.mp4" type="video/mp4">
             </video>
             <span class="badge">Disponível</span>
@@ -416,7 +430,7 @@
       <div class="ticket" data-cat="imovel">
         <div class="ticket-main">
           <div class="ticket-media">
-            <video class="amb-video" muted loop playsinline>
+            <video class="amb-video" muted loop playsinline preload="none">
               <source src="https://github.com/Leamba/ChaveConsorcios/releases/download/Midias/duplex.mp4" type="video/mp4">
             </video>
             <span class="badge">Exclusiva</span>
@@ -453,19 +467,19 @@
     </div>
     <div class="gallery reveal">
       <div class="g-item">
-        <video class="amb-video" muted loop playsinline poster="https://assets.mixkit.co/videos/75/75-thumb-360-0.jpg">
+        <video class="amb-video" muted loop playsinline preload="none" poster="https://assets.mixkit.co/videos/75/75-thumb-360-0.jpg">
           <source src="https://assets.mixkit.co/videos/75/75-360.mp4" type="video/mp4">
         </video>
         <div class="g-caption"><span class="tag">Conversível</span><h4>Alto padrão, sem esperar sorteio</h4></div>
       </div>
       <div class="g-item">
-        <video class="amb-video" muted loop playsinline poster="https://assets.mixkit.co/videos/64/64-thumb-360-0.jpg">
+        <video class="amb-video" muted loop playsinline preload="none" poster="https://assets.mixkit.co/videos/64/64-thumb-360-0.jpg">
           <source src="https://assets.mixkit.co/videos/64/64-360.mp4" type="video/mp4">
         </video>
         <div class="g-caption"><span class="tag">Performance</span><h4>Painel de quem já saiu na frente</h4></div>
       </div>
       <div class="g-item">
-        <video class="amb-video" muted loop playsinline poster="https://assets.mixkit.co/videos/24481/24481-thumb-720-3.jpg">
+        <video class="amb-video" muted loop playsinline preload="none" poster="https://assets.mixkit.co/videos/24481/24481-thumb-720-3.jpg">
           <source src="https://assets.mixkit.co/videos/24481/24481-720.mp4" type="video/mp4">
         </video>
         <div class="g-caption"><span class="tag">Entrega</span><h4>Chave na mão, sem fila de espera</h4></div>
@@ -486,13 +500,13 @@
     </div>
     <div class="gallery two reveal">
       <div class="g-item">
-        <video class="amb-video" muted loop playsinline poster="https://assets.mixkit.co/videos/43607/43607-thumb-360-0.jpg">
+        <video class="amb-video" muted loop playsinline preload="none" poster="https://assets.mixkit.co/videos/43607/43607-thumb-360-0.jpg">
           <source src="https://assets.mixkit.co/videos/43607/43607-360.mp4" type="video/mp4">
         </video>
         <div class="g-caption"><span class="tag">Vista aérea</span><h4>Propriedades cercadas de natureza e privacidade</h4></div>
       </div>
       <div class="g-item">
-        <video class="amb-video" muted loop playsinline poster="https://assets.mixkit.co/videos/30461/30461-thumb-360-0.jpg">
+        <video class="amb-video" muted loop playsinline preload="none" poster="https://assets.mixkit.co/videos/30461/30461-thumb-360-0.jpg">
           <source src="https://assets.mixkit.co/videos/30461/30461-360.mp4" type="video/mp4">
         </video>
         <div class="g-caption"><span class="tag">Bairro nobre</span><h4>Localização é parte do investimento</h4></div>
@@ -554,14 +568,13 @@
           <div class="avatar">CR</div>
           <div><div class="name">Carlos R.</div><div class="detail">Toyota Corolla 2021</div></div>
         </div>
-	</div>
-        <div class="testi">
+      </div>
+      <div class="testi">
         <p class="quote">"Consegui realizar a compra da minha Fiat Toro em apenas 20 dias com a carta contemplada. O processo foi extremamente rápido e sem burocracia."</p>
         <div class="testi-who">
           <div class="avatar">JS</div>
           <div><div class="name">Juliano S.</div><div class="detail">Fiat Toro</div></div>
         </div>
-      </div>
       </div>
     </div>
   </div>
@@ -634,6 +647,9 @@
 
 <script>
 (function(){
+  // Número oficial do WhatsApp do site
+  const SEU_WHATSAPP = "5517996482578";
+
   const header = document.getElementById('siteHeader');
   const onScroll = () => { header.classList.toggle('solid', window.scrollY > 40); };
   document.addEventListener('scroll', onScroll, { passive:true });
@@ -708,17 +724,19 @@
 
   const form = document.getElementById('simForm');
   const successMsg = document.getElementById('successMsg');
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const nome = document.getElementById('nome').value.trim();
-    const whats = document.getElementById('whats').value.trim();
-    const tipo = document.getElementById('tipo').value;
-    const valor = document.getElementById('valor').value.trim();
-    successMsg.classList.add('show');
-    const msg = `Olá! Meu nome é ${nome}. Quero simular um consórcio de ${tipo}${valor ? ' no valor de ' + valor : ''}. Meu WhatsApp: ${whats}`;
-    const waLink = `https://wa.me/5517996482578?text=${encodeURIComponent(msg)}`;
-    successMsg.innerHTML = 'Recebemos seus dados! <a href="' + waLink + '" target="_blank" rel="noopener" style="color:var(--brass-light); text-decoration:underline;">Clique aqui para continuar no WhatsApp</a>.';
-  });
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const nome = document.getElementById('nome').value.trim();
+      const whats = document.getElementById('whats').value.trim();
+      const tipo = document.getElementById('tipo').value;
+      const valor = document.getElementById('valor').value.trim();
+      successMsg.classList.add('show');
+      const msg = `Olá! Meu nome é ${nome}. Quero simular um consórcio de ${tipo}${valor ? ' no valor de ' + valor : ''}. Meu WhatsApp: ${whats}`;
+      const waLink = `https://wa.me/5517996482578?text=${encodeURIComponent(msg)}`;
+      successMsg.innerHTML = 'Recebemos seus dados! <a href="' + waLink + '" target="_blank" rel="noopener" style="color:var(--brass-light); text-decoration:underline;">Clique aqui para continuar no WhatsApp</a>.';
+    });
+  }
   
   window.negociarUnica = function(id, categoria, credito, entrada) {
       let texto = `*Olá!* Estava a navegar no site e tenho interesse na carta única abaixo:\n\n🔹 *ID:* ${id} (${categoria})\n💰 *Crédito:* ${credito}\n💸 *Entrada:* ${entrada}\n\nAinda está disponível para negócio?`;

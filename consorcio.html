@@ -5,6 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Consórcio Maggi — Planejamento Inteligente | CHAVE Consórcios</title>
   <meta name="description" content="Comece seu consórcio do zero com o Consórcio Maggi. Planos para imóveis, veículos e pesados sem juros e com parcelas que cabem no seu bolso.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c191d'/%3E%3Ccircle cx='11' cy='11' r='6' stroke='%23c08b3e' stroke-width='2' fill='none'/%3E%3Cpath d='M15.5 15.5L25 25M25 25V20M25 25H20' stroke='%23c08b3e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+  <!-- Open Graph — Preview no WhatsApp, Facebook e LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="CHAVE Consórcios">
+  <meta property="og:title" content="Consórcio Maggi — Planejamento Inteligente | CHAVE Consórcios">
+  <meta property="og:description" content="Comece seu consórcio do zero com o Consórcio Maggi. Planos para imóveis, veículos e pesados sem juros e com parcelas que cabem no seu bolso.">
+  <meta property="og:url" content="https://abnael-martins.github.io/ChaveConsorcios/consorcio.html">
+  <meta property="og:image" content="https://abnael-martins.github.io/ChaveConsorcios/diversos-bens.png">
+  <meta name="twitter:card" content="summary_large_image">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -71,30 +84,100 @@
 
     /* Navbar */
     nav {
-      padding: 1.5rem 2rem;
+      padding: 1.2rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid rgba(192, 139, 62, 0.15);
-      background: rgba(12, 25, 29, 0.85);
+      background: rgba(12, 25, 29, 0.9);
       backdrop-filter: blur(10px);
       position: sticky;
       top: 0;
       z-index: 100;
     }
 
-    .brand-logo {
-      font-family: var(--font-heading);
-      font-size: 1.6rem;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      color: var(--ivory);
-      text-transform: uppercase;
+    /* Logo — classes CSS substituem os inline styles do nav */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       text-decoration: none;
+      color: var(--ivory);
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
     }
 
-    .brand-logo span {
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1.5px solid var(--brass-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: var(--brass-light);
+      flex-shrink: 0;
+    }
+
+    .logo small {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
+    /* Hamburger mobile */
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 6px;
+    }
+    .burger span {
+      width: 22px;
+      height: 2px;
+      background: var(--ivory);
+      display: block;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      transform: translateY(-100%);
+      transition: transform 0.4s ease;
+    }
+    .mobile-menu.open { transform: translateY(0); }
+    .mobile-menu a {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      color: var(--ivory);
+      text-decoration: none;
+    }
+    .mobile-menu a:hover { color: var(--brass-light); }
+    .mobile-menu .close-menu {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      font-size: 1.6rem;
+      background: none;
+      border: none;
+      color: var(--ivory);
+      cursor: pointer;
     }
 
     .nav-links {
@@ -474,13 +557,15 @@
       }
 
       nav {
-        flex-direction: column;
-        gap: 1rem;
+        padding: 1rem 1.2rem;
       }
 
       .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
+        display: none;
+      }
+
+      .burger {
+        display: flex;
       }
     }
 
@@ -605,126 +690,39 @@
       padding-top: 0.8rem;
       font-style: italic;
     }
+    /* Estilos de destaque para os elementos BYD sem CSS */
+    .byd-countdown {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(192, 139, 62, 0.1);
+      border: 1px dashed var(--brass);
+      border-radius: 8px;
+      padding: 0.75rem 1.1rem;
+      color: var(--brass-light);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 1.5rem;
+    }
+
+    .byd-social-proof {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      background: rgba(76, 138, 106, 0.12);
+      border: 1px solid rgba(76, 138, 106, 0.4);
+      border-radius: 8px;
+      padding: 0.9rem 1.1rem;
+      color: var(--ivory);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
   </style>
-</head>
-<body>
 
-  <div class="bg-video-container">
-    <video autoplay loop muted playsinline>
-      <source src="duplex.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="bg-overlay"></div>
-
-  <nav>
-  <a href="index.html" class="logo" style="display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--ivory); font-family:var(--font-heading); font-size:1.35rem; font-weight:700;">
-    <span class="logo-mark" style="width:34px; height:34px; border-radius:50%; border:1.5px solid var(--brass-light); display:flex; align-items:center; justify-content:center; color:var(--brass-light);">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11.5 11.5L21 21M21 21V16M21 21H16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </span>
-    <span>CHAVE<small style="display:block; font-family:var(--font-mono); font-size:0.55rem; letter-spacing:0.16em; color:var(--muted); font-weight:500; text-transform:uppercase;">Consórcios</small></span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="consorcio.html" class="active" style="color: var(--brass-light); font-weight: 600;">Consórcio Maggi</a></li>
-    <li><a href="cartas.html">Cartas Contempladas</a></li>
-    <li><a href="#simulador" class="nav-btn">Simular Agora</a></li>
-  </ul>
-</nav>
-
-  <main class="container">
-    
-    <section class="hero">
-      <div class="badge-partner">🤝 Parceria de Confiança — Consórcio Maggi</div>
-      <h1>Planeje o Seu Futuro <span>Sem Pagar Juros</span></h1>
-      <p>Comece seu consórcio do zero com parcelas que cabem no seu orçamento, prazos flexíveis e a credibilidade de um dos grupos mais tradicionais do Brasil.</p>
-
-      <div class="hero-actions">
-        <a href="#simulador" class="btn-primary">Simular Meu Consórcio</a>
-        <a href="https://wa.me/5517996482578?text=Ol%C3%A1%21%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20Cons%C3%B3rcio%20Maggi." target="_blank" rel="noopener" class="btn-outline">Falar com Consultor</a>
-      </div>
-    </section>
-
-      <div class="section-title">
-        <h2>Modalidades de Consórcio</h2>
-        <p>Escolha a categoria ideal para a sua conquista</p>
-      </div>
-
-      <div class="categories-grid">
-        <div class="category-card">
-          <div>
-            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Consórcio Imobiliário" class="category-img">
-            <h3>Consórcio Imobiliário</h3>
-            <p>Adquira sua casa, apartamento, terreno, construa ou reforme. Planos de longo prazo com taxas reduzidas.</p>
-          </div>
-          <a href="#simulador" onclick="selecionarCategoria('Imóvel')" style="color: var(--brass-light); text-decoration: none; font-weight: 600; font-size: 0.9rem;">Simular Imóvel →</a>
-        </div>
-
-        <div class="category-card">
-          <div>
-            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80" alt="Consórcio de Veículos" class="category-img">
-            <h3>Consórcio de Veículos</h3>
-            <p>Compre seu carro zero km ou seminovo de qualquer marca. Flexibilidade total para escolha do seu veículo.</p>
-          </div>
-          <a href="#simulador" onclick="selecionarCategoria('Veículo')" style="color: var(--brass-light); text-decoration: none; font-weight: 600; font-size: 0.9rem;">Simular Veículo →</a>
-        </div>
-
-        <div class="category-card">
-          <div>
-            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80" alt="Pesados e Agronegócio" class="category-img">
-            <h3>Pesados e Agronegócio</h3>
-            <p>Renove sua frota de caminhões, tratores e máquinas agrícolas com planejamento financeiro estratégico.</p>
-          </div>
-          <a href="#simulador" onclick="selecionarCategoria('Pesados / Agro')" style="color: var(--brass-light); text-decoration: none; font-weight: 600; font-size: 0.9rem;">Simular Pesados →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================== -->
-    <!-- NOVO BANNER DE LANÇAMENTO BYD -->
-    <!-- ========================================== -->
-    <section class="byd-promo-section">
-      
-      <!-- 1 e 2: Selo e Título centralizados no topo -->
-      <div style="text-align: center; margin-bottom: 3rem;">
-        <div class="byd-promo-badge">🚀 Lançamento Exclusivo</div>
-        <h2 style="font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 2.8rem); color: var(--ivory); line-height: 1.2; margin-top: 1rem;">
-          As primeiras cotas do <span style="color: var(--brass-light);">Grupo 0645 BYD</span><br>estão chegando
-        </h2>
-      </div>
-
-      <div class="byd-promo-grid">
-        
-        <!-- 3: Apenas a imagem do BYD Azul -->
-        <div class="byd-promo-media">
-          <img src="byd azul.webp" alt="BYD Azul" class="byd-img-main" style="height: auto; max-height: 400px; width: 100%; object-fit: contain; border: none; box-shadow: none; background: transparent;">
-          <p class="byd-legal-note" style="margin-top: 2rem;">*Administrado pela Maggi Consórcios. Consulte um consultor para condições completas.</p>
-          <p class="byd-legal-note" style="margin-top: 2rem;">**O valor serve para a compra de qualquer veículo 0 km ou usado com até 3 anos.</p>   
-        </div>
-
-        <!-- Conteúdo de texto na direita -->
-        <div class="byd-promo-content">
-          <p>Documentação liberada: Grupo 0645, Maggi Consórcios. Garanta sua posição.</p>
-
-          <div class="byd-countdown">📅 Cadastro das cotas abre em 01/08/2026 · 1ª assembleia em 20/10/2026</div>
-
-          <ul class="byd-features">
-            <li><strong>150 meses, sem juros</strong></li>
-            <li><strong>Créditos de R$ 110 mil a R$ 220 mil</strong></li>
-            <li><strong>3.000 participantes no grupo</strong></li>
-          </ul>
-
-          <div class="byd-social-proof">🏆 <span><strong>880 de 3.000 cotas</strong> — quase 1 em cada 3 — já contempladas nos 24 primeiros meses.</span></div>
-
-          <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
-            <a href="#simulador" onclick="trocarCategoria('veiculos')" class="btn-primary">Quero minha vaga no Grupo 0645</a>
-            <a href="https://wa.me/5517996482578" target="_blank" rel="noopener" class="btn-outline">Falar sobre o Grupo BYD</a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-    <!-- ========================================== -->
-
-<style>
+  <!-- Estilos do Simulador (movidos do body para o head — correcção crítica) -->
+  <style>
     .simulador-container {
         max-width: 900px;
         margin: 40px auto 80px auto;
@@ -932,7 +930,138 @@
     .btn-whatsapp-sim:hover {
         background: #1EBE5D;
     }
-</style>
+  </style>
+</head>
+<body>
+
+  <div class="bg-video-container">
+    <!-- preload="none": não bloqueia o carregamento da página. O browser carrega o vídeo em segundo plano. -->
+    <!-- RECOMENDAÇÃO: crie um poster estático (ex: poster.jpg) a partir do 1.º frame do vídeo para eliminar o fundo preto inicial -->
+    <video autoplay loop muted playsinline preload="none">
+      <source src="duplex.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="bg-overlay"></div>
+
+  <nav>
+    <a href="index.html" class="logo">
+      <span class="logo-mark" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="5" stroke="currentColor" stroke-width="1.6"/><path d="M11.5 11.5L21 21M21 21V16M21 21H16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span>CHAVE<small>Consórcios</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="consorcio.html" class="active" style="color: var(--brass-light); font-weight: 600;">Consórcio Maggi</a></li>
+      <li><a href="cartas.html">Cartas Contempladas</a></li>
+      <li><a href="#simulador" class="nav-btn">Simular Agora</a></li>
+    </ul>
+    <button class="burger" id="burgerBtnCons" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- Menu Mobile -->
+  <div class="mobile-menu" id="mobileMenuCons">
+    <button class="close-menu" id="closeMenuCons" aria-label="Fechar menu">✕</button>
+    <a href="index.html">Início</a>
+    <a href="consorcio.html" style="color:var(--brass-light);">Consórcio Maggi</a>
+    <a href="cartas.html">Cartas Contempladas</a>
+    <a href="#simulador" class="btn-primary" style="font-size:1rem; padding:1rem 2rem; border-radius:8px;">Simular Agora</a>
+  </div>
+
+  <main class="container">
+    
+    <section class="hero">
+      <div class="badge-partner">🤝 Parceria de Confiança — Consórcio Maggi</div>
+      <h1>Planeje o Seu Futuro <span>Sem Pagar Juros</span></h1>
+      <p>Comece seu consórcio do zero com parcelas que cabem no seu orçamento, prazos flexíveis e a credibilidade de um dos grupos mais tradicionais do Brasil.</p>
+
+      <div class="hero-actions">
+        <a href="#simulador" class="btn-primary">Simular Meu Consórcio</a>
+        <a href="https://wa.me/5517996482578?text=Ol%C3%A1%21%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20o%20Cons%C3%B3rcio%20Maggi." target="_blank" rel="noopener" class="btn-outline">Falar com Consultor</a>
+      </div>
+    </section>
+
+      <div class="section-title">
+        <h2>Modalidades de Consórcio</h2>
+        <p>Escolha a categoria ideal para a sua conquista</p>
+      </div>
+
+      <div class="categories-grid">
+        <div class="category-card">
+          <div>
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80" alt="Consórcio Imobiliário" class="category-img">
+            <h3>Consórcio Imobiliário</h3>
+            <p>Adquira sua casa, apartamento, terreno, construa ou reforme. Planos de longo prazo com taxas reduzidas.</p>
+          </div>
+          <a href="#simulador" onclick="trocarCategoria('imoveis')" style="color: var(--brass-light); text-decoration: none; font-weight: 600; font-size: 0.9rem;">Simular Imóvel →</a>
+        </div>
+
+        <div class="category-card">
+          <div>
+            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80" alt="Consórcio de Veículos" class="category-img">
+            <h3>Consórcio de Veículos</h3>
+            <p>Compre seu carro zero km ou seminovo de qualquer marca. Flexibilidade total para escolha do seu veículo.</p>
+          </div>
+          <a href="#simulador" onclick="trocarCategoria('veiculos')" style="color: var(--brass-light); text-decoration: none; font-weight: 600; font-size: 0.9rem;">Simular Veículo →</a>
+        </div>
+
+        <div class="category-card">
+          <div>
+            <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80" alt="Pesados e Agronegócio" class="category-img">
+            <h3>Pesados e Agronegócio</h3>
+            <p>Renove sua frota de caminhões, tratores e máquinas agrícolas com planejamento financeiro estratégico.</p>
+          </div>
+          <a href="#simulador" onclick="trocarCategoria('veiculos')" style="color: var(--brass-light); text-decoration: none; font-weight: 600; font-size: 0.9rem;">Simular Pesados →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- NOVO BANNER DE LANÇAMENTO BYD -->
+    <!-- ========================================== -->
+    <section class="byd-promo-section">
+      
+      <!-- 1 e 2: Selo e Título centralizados no topo -->
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <div class="byd-promo-badge">🚀 Lançamento Exclusivo</div>
+        <h2 style="font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 2.8rem); color: var(--ivory); line-height: 1.2; margin-top: 1rem;">
+          As primeiras cotas do <span style="color: var(--brass-light);">Grupo 0645 BYD</span><br>estão chegando
+        </h2>
+      </div>
+
+      <div class="byd-promo-grid">
+        
+        <!-- 3: Apenas a imagem do BYD Azul -->
+        <div class="byd-promo-media">
+          <img src="byd azul.webp" alt="BYD Azul" class="byd-img-main" style="height: auto; max-height: 400px; width: 100%; object-fit: contain; border: none; box-shadow: none; background: transparent;">
+          <p class="byd-legal-note" style="margin-top: 2rem;">*Administrado pela Maggi Consórcios. Consulte um consultor para condições completas.</p>
+          <p class="byd-legal-note" style="margin-top: 2rem;">**O valor serve para a compra de qualquer veículo 0 km ou usado com até 3 anos.</p>   
+        </div>
+
+        <!-- Conteúdo de texto na direita -->
+        <div class="byd-promo-content">
+          <p>Documentação liberada: Grupo 0645, Maggi Consórcios. Garanta sua posição.</p>
+
+          <div class="byd-countdown">📅 Cadastro das cotas abre em 01/08/2026 · 1ª assembleia em 20/10/2026</div>
+
+          <ul class="byd-features">
+            <li><strong>150 meses, sem juros</strong></li>
+            <li><strong>Créditos de R$ 110 mil a R$ 220 mil</strong></li>
+            <li><strong>3.000 participantes no grupo</strong></li>
+          </ul>
+
+          <div class="byd-social-proof">🏆 <span><strong>880 de 3.000 cotas</strong> — quase 1 em cada 3 — já contempladas nos 24 primeiros meses.</span></div>
+
+          <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <a href="#simulador" onclick="trocarCategoria('veiculos')" class="btn-primary">Quero minha vaga no Grupo 0645</a>
+            <a href="https://wa.me/5517996482578" target="_blank" rel="noopener" class="btn-outline">Falar sobre o Grupo BYD</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- ========================================== -->
+
+
 
 <section id="simulador" class="simulador-container">
     <div class="simulador-header">
@@ -1387,7 +1516,16 @@
       });
     });
 
-    </script>
+    // Hamburger Mobile Menu
+    const burger = document.getElementById('burgerBtnCons');
+    const closeMenu = document.getElementById('closeMenuCons');
+    const mobileMenu = document.getElementById('mobileMenuCons');
+    if (burger && mobileMenu) {
+      burger.addEventListener('click', () => mobileMenu.classList.add('open'));
+      closeMenu.addEventListener('click', () => mobileMenu.classList.remove('open'));
+      mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+    }
+  </script>
 
 </body>
 </html>
