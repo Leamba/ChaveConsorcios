@@ -56,33 +56,6 @@
       overflow-x: hidden;
     }
 
-    /* Background Video Overlay */
-    .bg-video-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
-      overflow: hidden;
-    }
-
-    .bg-video-container video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.25) contrast(1.1);
-    }
-
-    .bg-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at center, rgba(12, 25, 29, 0.75) 0%, rgba(12, 25, 29, 0.95) 100%);
-      z-index: -1;
-    }
 
     /* Header */
     header {
@@ -359,7 +332,90 @@
       font-weight: 600;
     }
 
-    /* Subtítulo dos cards — substitui o uso errado de <small> dentro de <h2> */
+    /* ── Galeria de Bens Aspiracionais ── */
+    .assets-gallery {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.1rem;
+      animation: fadeInUp 1.1s ease both;
+      animation-delay: 0.15s;
+    }
+
+    .asset-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(192, 139, 62, 0.22);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.55);
+      aspect-ratio: 4 / 3;
+      cursor: default;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .asset-card:hover {
+      transform: translateY(-6px) scale(1.025);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.7), 0 0 28px rgba(192, 139, 62, 0.15);
+      border-color: rgba(192, 139, 62, 0.55);
+    }
+
+    .asset-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .asset-card:hover img {
+      transform: scale(1.06);
+    }
+
+    /* Gradiente escuro + label na parte inferior */
+    .asset-card-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0.9rem 1rem 0.75rem;
+      background: linear-gradient(to top, rgba(8, 17, 20, 0.92) 0%, transparent 100%);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .asset-card-label span {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--brass-light);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .asset-icon {
+      font-size: 1rem;
+      line-height: 1;
+    }
+
+    /* Mobile: rolagem horizontal */
+    @media (max-width: 640px) {
+      .assets-gallery {
+        grid-template-columns: repeat(3, 72vw);
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0.5rem;
+      }
+
+      .asset-card {
+        scroll-snap-align: center;
+      }
+    }
+
+    /* ── Subtítulo dos cards ── */
     .card-subtitle {
       font-size: 1.1rem;
       color: var(--brass-light);
@@ -370,14 +426,6 @@
 </head>
 <body>
 
-  <div class="bg-video-container">
-    <!-- preload="none": não bloqueia o carregamento da página. O browser carrega o vídeo em segundo plano. -->
-    <!-- RECOMENDAÇÃO: crie um poster estático (ex: poster.jpg) a partir do 1.º frame do vídeo para eliminar o fundo preto inicial -->
-    <video autoplay loop muted playsinline preload="none">
-      <source src="duplex.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="bg-overlay"></div>
 
   <header>
     <div class="brand-logo">CHAVE <span>Consórcios</span></div>
@@ -408,6 +456,41 @@
         Conheça as soluções da <strong>CHAVE Consórcios</strong> e descubra qual modalidade é ideal para você realizar seu projeto com segurança e inteligência financeira.
       </p>
     </section>
+
+    <!-- ── Galeria de Bens Aspiracionais ── -->
+    <div class="assets-gallery" role="list" aria-label="Exemplos de bens adquiríveis via consórcio">
+
+      <div class="asset-card" role="listitem">
+        <img src="asset_car.png"
+             alt="Carro de luxo — adquira com consórcio"
+             loading="lazy" decoding="async">
+        <div class="asset-card-label">
+          <span class="asset-icon">🚗</span>
+          <span>Veículos</span>
+        </div>
+      </div>
+
+      <div class="asset-card" role="listitem">
+        <img src="asset_moto.png"
+             alt="Moto premium — adquira com consórcio"
+             loading="lazy" decoding="async">
+        <div class="asset-card-label">
+          <span class="asset-icon">🏍️</span>
+          <span>Motos</span>
+        </div>
+      </div>
+
+      <div class="asset-card" role="listitem">
+        <img src="asset_house.png"
+             alt="Imóvel de alto padrão — adquira com consórcio"
+             loading="lazy" decoding="async">
+        <div class="asset-card-label">
+          <span class="asset-icon">🏠</span>
+          <span>Imóveis</span>
+        </div>
+      </div>
+
+    </div>
 
     <div class="hero-title">
       <h1>Como deseja realizar o seu projeto hoje?</h1>
