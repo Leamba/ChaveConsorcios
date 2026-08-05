@@ -95,7 +95,7 @@
   .hero h1{ font-size:clamp(2.4rem, 5.4vw, 4.1rem); line-height:1.04; margin-bottom:22px; }
   .hero h1 em{ font-style:italic; color:var(--brass-light); }
   .hero p{ color:var(--ivory); opacity:0.82; font-size:1.08rem; max-width:520px; margin-bottom:34px; }
-  .hero-ctas{ display:flex; gap:16px; flex-wrap:wrap; margin-bottom:40px; }
+  .hero-ctas{ display:flex; gap:16px; flex-wrap:wrap; margin-bottom:10px; }
   .hero-toggle{ display:flex; gap:8px; }
   .hero-toggle button{ font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.08em; text-transform:uppercase; background:rgba(244,236,221,0.08); border:1px solid rgba(244,236,221,0.2); color:var(--muted); padding:8px 14px; border-radius:20px; cursor:pointer; transition:all .25s ease; }
   .hero-toggle button.active{ background:var(--brass); border-color:var(--brass); color:#20140a; }
@@ -244,6 +244,8 @@
     .field-row{ grid-template-columns:1fr; }
     .footer-grid{ grid-template-columns:1fr; }
     .trust .container{ justify-content:flex-start; }
+    .trust-item .num { font-size: 1.25rem; }
+    .trust-item .label { font-size: 0.72rem; }
     section{ padding-inline:0; }
     .section{ padding:76px 0; }
   }
@@ -304,10 +306,6 @@
       <div class="hero-ctas">
         <a href="cartas-contempladas.html" class="btn btn-primary">Ver cartas disponíveis</a>
       </div>
-      <div class="hero-toggle" role="tablist" aria-label="Alternar destaque do vídeo">
-        <button class="active" data-video="0">Imóveis</button>
-        <button data-video="1">Veículos</button>
-      </div>
     </div>
   </div>
   <div class="scroll-cue"><span>Role</span><span class="line"></span></div>
@@ -318,7 +316,7 @@
   <div class="container" style="display:flex; flex-direction:column; align-items:center; gap:12px;">
     <div style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:20px;">
       <div class="trust-item"><div class="num">R$ 340 mi+</div><div class="label">em cartas já negociadas</div></div>
-      <div class="trust-item"><div class="num">2.100+</div><div class="label">clientes contemplados</div></div>
+      <div class="trust-item"><div class="num">2.100+</div><div class="label">clientes atendidos</div></div>
       <div class="trust-item"><div class="num">11 anos</div><div class="label">de atuação no mercado</div></div>
       <div class="trust-item"><div class="num">4,8 / 5</div><div class="label">satisfação em pesquisas internas</div></div>
     </div>
