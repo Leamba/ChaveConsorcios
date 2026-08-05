@@ -569,34 +569,108 @@
       }
     }
 
-    /* Banner Promocional BYD */
-    .byd-promo-section {
-      background: linear-gradient(135deg, rgba(20, 42, 46, 0.95) 0%, rgba(15, 33, 38, 0.95) 100%);
-      border: 1px solid var(--brass);
-      border-radius: 16px;
-      padding: 2.5rem 2rem;
-      margin: 1rem 0 4rem 0;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    /* ============================================== */
+    /* Banner Promocional BYD — Edição Premium        */
+    /* ============================================== */
+
+    @keyframes byd-shimmer {
+      0%   { background-position: -200% center; }
+      100% { background-position:  200% center; }
     }
 
+    @keyframes byd-badge-pulse {
+      0%, 100% { transform: scale(1);    box-shadow: 0 4px 15px rgba(192,139,62,0.5); }
+      50%       { transform: scale(1.07); box-shadow: 0 4px 30px rgba(192,139,62,0.9); }
+    }
+
+    @keyframes byd-float {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-12px); }
+    }
+
+    @keyframes byd-sweep {
+      0%   { left: -80%; }
+      100% { left: 120%; }
+    }
+
+    @keyframes byd-progress-grow {
+      from { width: 0%; }
+      to   { width: 29.3%; }
+    }
+
+    @keyframes byd-border-glow {
+      0%, 100% { box-shadow: 0 15px 50px rgba(0,0,0,0.6), 0 0  0px rgba(192,139,62,0.3); }
+      50%       { box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 40px rgba(192,139,62,0.2); }
+    }
+
+    /* Seção principal */
+    .byd-promo-section {
+      background: linear-gradient(135deg, rgba(18,38,42,0.98) 0%, rgba(10,25,30,0.98) 50%, rgba(20,40,46,0.98) 100%);
+      border: 1.5px solid rgba(192,139,62,0.55);
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      margin: 1rem 0 4rem 0;
+      position: relative;
+      overflow: hidden;
+      animation: byd-border-glow 4s ease-in-out infinite;
+    }
+
+    /* Brilho radial de fundo */
+    .byd-promo-section::before {
+      content: '';
+      position: absolute;
+      top: -30%; right: -10%;
+      width: 55%; height: 130%;
+      background: radial-gradient(ellipse, rgba(192,139,62,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* Linha decorativa animada no topo */
+    .byd-promo-section::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 10%; right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--brass-light), #f5d060, var(--brass-light), transparent);
+      background-size: 200% auto;
+      animation: byd-shimmer 4s linear infinite;
+    }
+
+    /* Badge pulsante */
     .byd-promo-badge {
-      display: inline-block;
-      background: var(--brass);
-      color: #081114;
-      font-weight: 700;
-      font-size: 0.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: linear-gradient(135deg, #b07828, var(--brass), #eeaa50, var(--brass), #b07828);
+      background-size: 300% auto;
+      color: #060e10;
+      font-weight: 800;
+      font-size: 0.78rem;
       font-family: var(--font-mono);
       text-transform: uppercase;
-      padding: 0.35rem 0.8rem;
-      border-radius: 20px;
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
       margin-bottom: 1.5rem;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
+      animation: byd-badge-pulse 2.5s ease-in-out infinite, byd-shimmer 3s linear infinite;
+    }
+
+    /* Título dourado com efeito shimmer */
+    .byd-title-highlight {
+      background: linear-gradient(90deg, var(--brass-light), #f5d060, #fff5c0, #f0c060, var(--brass-light));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: byd-shimmer 3s linear infinite;
+      display: inline-block;
+      filter: drop-shadow(0 0 22px rgba(230,180,60,0.55));
     }
 
     .byd-promo-grid {
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
-      gap: 2rem;
+      gap: 2.5rem;
       align-items: center;
     }
 
@@ -624,12 +698,14 @@
       margin-bottom: 1.5rem;
     }
 
+    /* Feature cards com hover */
     .byd-features {
       list-style: none;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 0.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 0.75rem;
       margin-bottom: 1.8rem;
+      padding: 0;
     }
 
     .byd-features li {
@@ -637,19 +713,33 @@
       align-items: center;
       gap: 0.6rem;
       color: var(--ivory);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
+      background: rgba(192,139,62,0.07);
+      border: 1px solid rgba(192,139,62,0.2);
+      border-radius: 10px;
+      padding: 0.75rem 0.9rem;
+      transition: all 0.25s ease;
+    }
+
+    .byd-features li:hover {
+      background: rgba(192,139,62,0.15);
+      border-color: rgba(192,139,62,0.55);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(192,139,62,0.15);
     }
 
     .byd-features li::before {
       content: '⚡';
-      color: var(--brass-light);
+      font-size: 1rem;
+      flex-shrink: 0;
     }
 
-    /* Galeria BYD: Imagem Principal Externa + Miniaturas Internas */
+    /* Imagem flutuante com animação */
     .byd-promo-media {
       display: flex;
       flex-direction: column;
       gap: 0.8rem;
+      animation: byd-float 5s ease-in-out infinite;
     }
 
     .byd-img-main {
@@ -657,8 +747,8 @@
       height: 280px;
       object-fit: cover;
       border-radius: 12px;
-      border: 1px solid rgba(192, 139, 62, 0.4);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(192,139,62,0.4);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
     }
 
     .byd-img-thumbs {
@@ -672,7 +762,7 @@
       height: 95px;
       object-fit: cover;
       border-radius: 8px;
-      border: 1px solid rgba(192, 139, 62, 0.25);
+      border: 1px solid rgba(192,139,62,0.25);
       transition: transform 0.2s ease, border-color 0.2s ease;
     }
 
@@ -684,40 +774,113 @@
     .byd-legal-note {
       font-size: 0.78rem;
       color: var(--muted);
-      margin-top: 1.5rem;
+      margin-top: 0.5rem;
       line-height: 1.4;
-      border-top: 1px solid rgba(192, 139, 62, 0.2);
-      padding-top: 0.8rem;
+      border-top: 1px solid rgba(192,139,62,0.15);
+      padding-top: 0.6rem;
       font-style: italic;
     }
-    /* Estilos de destaque para os elementos BYD sem CSS */
+
+    /* Countdown com sweep animado */
     .byd-countdown {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: 0.5rem;
-      background: rgba(192, 139, 62, 0.1);
-      border: 1px dashed var(--brass);
-      border-radius: 8px;
-      padding: 0.75rem 1.1rem;
+      gap: 0.6rem;
+      background: linear-gradient(135deg, rgba(192,139,62,0.12), rgba(232,168,74,0.05));
+      border: 1px solid rgba(192,139,62,0.45);
+      border-radius: 10px;
+      padding: 0.85rem 1.2rem;
       color: var(--brass-light);
       font-family: var(--font-mono);
       font-size: 0.85rem;
       letter-spacing: 0.03em;
       margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
     }
 
+    .byd-countdown::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -80%;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(192,139,62,0.12), transparent);
+      animation: byd-sweep 3s ease-in-out infinite;
+    }
+
+    /* Card de prova social com barra de progresso */
     .byd-social-proof {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.6rem;
-      background: rgba(76, 138, 106, 0.12);
-      border: 1px solid rgba(76, 138, 106, 0.4);
-      border-radius: 8px;
-      padding: 0.9rem 1.1rem;
+      background: linear-gradient(135deg, rgba(76,138,106,0.12), rgba(50,110,80,0.06));
+      border: 1px solid rgba(76,138,106,0.45);
+      border-radius: 12px;
+      padding: 1.1rem 1.2rem;
       color: var(--ivory);
       font-size: 0.9rem;
       line-height: 1.5;
       margin-bottom: 1.5rem;
+    }
+
+    .byd-progress-wrap {
+      margin-top: 0.85rem;
+    }
+
+    .byd-progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 0.45rem;
+    }
+
+    .byd-progress-bar {
+      height: 8px;
+      border-radius: 99px;
+      background: rgba(255,255,255,0.08);
+      overflow: hidden;
+    }
+
+    .byd-progress-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, #3d7a5e, #5cb88a, #7dd4a6);
+      box-shadow: 0 0 10px rgba(76,200,120,0.5);
+      animation: byd-progress-grow 1.8s ease-out 0.5s forwards;
+    }
+
+    /* Botão principal premium com shimmer */
+    .byd-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(135deg, #a06c1e, var(--brass), #eeaa50, var(--brass), #a06c1e);
+      background-size: 300% auto;
+      color: #060e10;
+      font-weight: 800;
+      font-size: 0.95rem;
+      padding: 0.9rem 1.8rem;
+      border-radius: 10px;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(192,139,62,0.45);
+      letter-spacing: 0.02em;
+      animation: byd-shimmer 3s linear infinite;
+    }
+
+    .byd-btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 35px rgba(192,139,62,0.65);
+    }
+
+    .byd-btn-primary::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -80%;
+      width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent);
+      animation: byd-sweep 2.5s ease-in-out infinite;
     }
   </style>
 
@@ -1019,40 +1182,52 @@
     <!-- NOVO BANNER DE LANÇAMENTO BYD -->
     <!-- ========================================== -->
     <section class="byd-promo-section">
-      
-      <!-- 1 e 2: Selo e Título centralizados no topo -->
-      <div style="text-align: center; margin-bottom: 3rem;">
+
+      <!-- Selo e Título centralizados no topo -->
+      <div style="text-align: center; margin-bottom: 3rem; position: relative; z-index: 1;">
         <div class="byd-promo-badge">🚀 Lançamento Exclusivo</div>
-        <h2 style="font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 2.8rem); color: var(--ivory); line-height: 1.2; margin-top: 1rem;">
-          As primeiras cotas do <span style="color: var(--brass-light);">Grupo 0645 BYD</span><br>estão chegando
+        <h2 style="font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 2.8rem); color: var(--ivory); line-height: 1.25; margin-top: 1rem;">
+          As primeiras cotas do<br><span class="byd-title-highlight">Grupo BYD</span><br>já chegaram!
         </h2>
+        <p style="color: var(--muted); font-size: 1rem; margin-top: 0.75rem; max-width: 500px; margin-left: auto; margin-right: auto;">O grupo de consórcio exclusivo para veículos BYD — elétricos e híbridos — com as melhores condições do mercado.</p>
       </div>
 
-      <div class="byd-promo-grid">
-        
-        <!-- 3: Apenas a imagem do BYD Azul -->
+      <div class="byd-promo-grid" style="position: relative; z-index: 1;">
+
+        <!-- Imagem do BYD Azul com float animado -->
         <div class="byd-promo-media">
-          <img src="byd azul.webp" alt="BYD Azul" class="byd-img-main" style="height: auto; max-height: 400px; width: 100%; object-fit: contain; border: none; box-shadow: none; background: transparent;">
-          <p class="byd-legal-note" style="margin-top: 2rem;">*Administrado pela Maggi Consórcios. Consulte um consultor para condições completas.</p>
-          <p class="byd-legal-note" style="margin-top: 2rem;">**O valor serve para a compra de qualquer veículo 0 km ou usado com até 3 anos.</p>   
+          <img src="byd azul.webp" alt="BYD Azul" class="byd-img-main" style="height: auto; max-height: 420px; width: 100%; object-fit: contain; border: none; box-shadow: none; background: transparent; filter: drop-shadow(0 20px 40px rgba(0,80,200,0.25));">
+          <p class="byd-legal-note">*Administrado pela Maggi Consórcios. Consulte um consultor para condições completas.</p>
+          <p class="byd-legal-note">**O valor serve para a compra de qualquer veículo 0 km ou usado com até 3 anos.</p>
         </div>
 
         <!-- Conteúdo de texto na direita -->
         <div class="byd-promo-content">
-          <p>Documentação liberada: Grupo 0645, Maggi Consórcios. Garanta sua posição.</p>
+          <p style="line-height: 1.6; margin-bottom: 1.2rem; font-size: 1rem; color: var(--muted);">
+            Documentação liberada: <span style="color: var(--brass-light); font-weight: 600;">Grupo BYD.</span><br>
+            Maggi Consórcios - Garanta sua posição.
+          </p>
 
-          <div class="byd-countdown">📅 Cadastro das cotas abre em 01/08/2026 · 1ª assembleia em 20/10/2026</div>
+          <div class="byd-countdown" style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.3rem; padding: 1rem 1.2rem;">
+            <span style="font-size: 1.05rem; font-weight: 800; color: var(--brass-light); letter-spacing: 0.05em;">🔥 VENDA DE COTAS LIBERADA!</span>
+            <span style="font-size: 0.85rem; color: var(--ivory); opacity: 0.9;">📅 1ª assembleia em 20/10/2026</span>
+          </div>
 
           <ul class="byd-features">
             <li><strong>150 meses, sem juros</strong></li>
             <li><strong>Créditos de R$ 110 mil a R$ 220 mil</strong></li>
             <li><strong>3.000 participantes no grupo</strong></li>
+            <li><strong>Aceita lance embutido</strong></li>
           </ul>
 
-          <div class="byd-social-proof">🏆 <span><strong>880 de 3.000 cotas</strong> — quase 1 em cada 3 — já contempladas nos 24 primeiros meses.</span></div>
+          <div class="byd-social-proof">
+            <div>
+              🏆 <span><strong>880 contemplações nos primeiros 24 meses</strong> — são <strong>mais de 36 contemplados por mês</strong> (quase 1 em cada 3 participantes)! Aceleração máxima para quem tem pressa de conquistar o seu BYD.</span>
+            </div>
+          </div>
 
           <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
-            <a href="#simulador" onclick="trocarCategoria('veiculos')" class="btn-primary">Quero minha vaga no Grupo 0645</a>
+            <a href="#simulador" onclick="trocarCategoria('veiculos')" class="byd-btn-primary">🚀 Quero minha vaga no Grupo BYD</a>
             <a href="https://wa.me/5517996482578" target="_blank" rel="noopener" class="btn-outline">Falar sobre o Grupo BYD</a>
           </div>
         </div>
@@ -1060,6 +1235,35 @@
       </div>
     </section>
     <!-- ========================================== -->
+
+    <!-- ============ VANTAGENS DO CONSÓRCIO TRADICIONAL ============ -->
+    <section class="section alt" style="margin-bottom: 4rem; padding: 2.5rem; background: var(--surface); border-radius: 16px; border: 1px solid var(--line);">
+      <div style="margin-bottom: 2rem;">
+        <div class="eyebrow" style="font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--brass-light); margin-bottom: 10px;">Vantagens do Consórcio</div>
+        <h2 style="font-family: var(--font-heading); font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--ivory); margin-bottom: 10px;">Por que planejar via Consórcio Maggi</h2>
+        <p style="color: var(--muted); max-width: 600px; font-size: 0.98rem;">O consórcio é regido pelo Banco Central e pela Lei nº 11.795/2008 — sem cobrança de juros, apenas taxa de administração.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+        <div style="background: var(--bg-alt); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(244,236,221,0.08);">
+          <svg style="width: 28px; height: 28px; color: var(--brass-light); margin-bottom: 12px;" viewBox="0 0 24 24" fill="none"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8" stroke="currentColor" stroke-width="1.4"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.4"/></svg>
+          <h3 style="font-size: 1.1rem; color: var(--ivory); margin-bottom: 8px;">Sem juros</h3>
+          <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.5;">Você paga apenas a taxa de administração diluída no prazo — nada de juros compostos de financiamentos.</p>
+        </div>
+
+        <div style="background: var(--bg-alt); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(244,236,221,0.08);">
+          <svg style="width: 28px; height: 28px; color: var(--brass-light); margin-bottom: 12px;" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M3 10h18" stroke="currentColor" stroke-width="1.4"/><path d="M7 3v4M17 3v4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          <h3 style="font-size: 1.1rem; color: var(--ivory); margin-bottom: 8px;">Parcelas previsíveis</h3>
+          <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.5;">Planejamento financeiro transparente e seguro, com parcelas que cabem no seu orçamento do início ao fim.</p>
+        </div>
+
+        <div style="background: var(--bg-alt); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(244,236,221,0.08);">
+          <svg style="width: 28px; height: 28px; color: var(--brass-light); margin-bottom: 12px;" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 4v5c0 5-3.2 8-7 9-3.8-1-7-4-7-9V7l7-4z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+          <h3 style="font-size: 1.1rem; color: var(--ivory); margin-bottom: 8px;">Poder de compra à vista</h3>
+          <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.5;">Ao ser contemplado por sorteio ou lance, sua carta garante força total para negociar descontos diretamente com o vendedor.</p>
+        </div>
+      </div>
+    </section>
 
 
 
@@ -1253,7 +1457,7 @@
                     {
                         badge: "Linha BYD / Usados",
                         badgeClass: "badge-rapido",
-                        grupo: "Grupo 0645",
+                        grupo: "Grupo BYD",
                         creditoBruto: 110000.00,
                         prazo: 150,
                         parcela: 953.93,
@@ -1269,7 +1473,7 @@
                     {
                         badge: "Linha BYD / Usados",
                         badgeClass: "badge-rapido",
-                        grupo: "Grupo 0645",
+                        grupo: "Grupo BYD",
                         creditoBruto: 130000.00,
                         prazo: 150,
                         parcela: 1127.37,
@@ -1285,7 +1489,7 @@
                     {
                         badge: "Linha BYD / Usados",
                         badgeClass: "badge-rapido",
-                        grupo: "Grupo 0645",
+                        grupo: "Grupo BYD",
                         creditoBruto: 160000.00,
                         prazo: 150,
                         parcela: 1387.53,
@@ -1300,7 +1504,7 @@
                     {
                         badge: "Linha BYD / Usados",
                         badgeClass: "badge-rapido",
-                        grupo: "Grupo 0645",
+                        grupo: "Grupo BYD",
                         creditoBruto: 190000.00,
                         prazo: 150,
                         parcela: 1647.69,
@@ -1315,7 +1519,7 @@
                     {
                         badge: "Linha BYD / Usados",
                         badgeClass: "badge-rapido",
-                        grupo: "Grupo 0645",
+                        grupo: "Grupo BYD",
                         creditoBruto: 220000.00,
                         prazo: 150,
                         parcela: 1907.86,
